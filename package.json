@@ -1,7 +1,7 @@
 {
   "name": "expomapper",
   "version": "1.0.0",
-  "description": "expomapper",
+  "description": "Tool to create layout floors for expos",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/adndark/ExpoMapper/issues"
   },
-  "homepage": "https://github.com/adndark/ExpoMapper#readme"
+  "homepage": "https://github.com/adndark/ExpoMapper#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
