@@ -1,9 +1,9 @@
 {
     "development": {
-      "username": "GatoVolador",
-      "password": "Ch4ng0sM4ng0s[]",
+      "username": "xxxxx",
+      "password": "yyyyy",
       "database": "ExpoMapper",
-      "host": "Expomapper.cmqhpwo9gspn.us-west-2.rds.amazonaws.com",
+      "host": "zzzzzzz",
       "dialect": "mysql"
     },
     "test": {
@@ -19,4 +19,3 @@
       "dialect": "mysql"
     }
   }
-  
