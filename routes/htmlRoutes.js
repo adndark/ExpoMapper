@@ -5,11 +5,15 @@ module.exports = function(app) {
     // Below code handles when users "visit" a page.
     // In each of the below cases the user is shown an HTML page of content
     // ---------------------------------------------------------------------------
-  
+
     app.get("/", function(req, res) {
+      res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
+
+    app.get("/test", function(req, res) {
         console.log("Request to get main");
         console.log(req);
-      res.sendFile(path.join(__dirname, "../public/index.html"));
+      res.sendFile(path.join(__dirname, "../public/test.html"));
     });
   
 };
