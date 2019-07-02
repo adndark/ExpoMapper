@@ -14,8 +14,7 @@ module.exports = function(app) {
     });
 
     app.get("/test", function(req, res) {
-        console.log("Request to get main");
-        console.log(req);
+        console.log("Request to get test");
       res.sendFile(path.join(__dirname, "../public/test.html"));
     });
   
