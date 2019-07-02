@@ -1,5 +1,3 @@
-
-
 var path = require("path");
 
 module.exports = function(app) {
@@ -9,6 +7,8 @@ module.exports = function(app) {
     // ---------------------------------------------------------------------------
   
     app.get("/", function(req, res) {
+        console.log("Request to get main");
+        console.log(req);
       res.sendFile(path.join(__dirname, "../public/index.html"));
     });
   
