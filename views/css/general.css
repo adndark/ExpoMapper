@@ -1,0 +1,27 @@
+.no-padding {
+    padding: 0px;
+}
+
+.workspace-container {
+    border-style: solid;
+    border-color: gray;
+    min-width: 100%;
+    min-height: 600px;
+}
+
+.outer-canvas-container {
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.workspace-canvas {
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.tools-container {
+    border-style: solid;
+    border-color: blue;
+    max-width: 1005;
+    min-height: 600px;
+}

@@ -7,5 +7,11 @@ module.exports = function(app) {
         var file = req.params.file;
         res.sendFile(path.join(__dirname, "../lib/" + file));
     });
+
+    app.get("/lib/newMap/:file", function(req, res) {
+        var file = req.params.file;
+        console.log(file);
+        res.sendFile(path.join(__dirname, "../lib/newMap/" + file));
+    });
   
 };

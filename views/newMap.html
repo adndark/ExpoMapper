@@ -4,11 +4,20 @@
   <title>ExpoMapper</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <!-- scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <style>
+  <script src="lib/fabric-min.js"></script>
+  <script src="lib/newMap/newMap.js"></script>
+
+  <!-- style -->
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <!-- general style -->
+  <link rel="stylesheet" type="text/css" href="/css/general.css"/>
+
   .fakeimg {
     height: 200px;
     background: #aaa;
@@ -42,8 +51,8 @@
   </div>  
 </nav>
 
-<div class="container" style="margin-top:30px">
-  <div class="row">
+<div id="mainBodyContainer" class="container" style="margin-top:30px">
+  <div class="row" id="headerRow">
     <div class="col-sm-8">
         
       <h3>Que desea hacer:</h3>
@@ -67,9 +76,7 @@
     <div class="col-sm-8">
       <h2>NUEVO MAPA (NOMBRE)</h2>
       <h5>Descripcion - Fecha</h5>
-      <div class="fakeimg">Mapa en edicion</div>
-      <!-- <p>Some text..</p>
-      <p></p> -->
+
       <br>
       <h2>Espacios</h2>
       <h5>Formas a usar para los pabellones y stands</h5>
@@ -77,6 +84,28 @@
       
       <p></p>
       <p></p>
+    </div>
+  </div>
+
+  <!-- workspace -->
+  <div class="row" id="workspaceRow">
+  <!-- tools -->
+    <div class="col-md-4 no-padding">
+      <div id="toolsContainer" class="tools-container">
+        Tools go here
+      </div>
+    </div>
+
+    <!--canvas for map -->
+    <div class="col-md-8 no-padding">
+      <!--workspace container for canvas -->
+      <div id="workspaceContainer" class="workspace-container">
+        <!--canvas container -->
+        <div id="canvasContainer" class="outer-canvas-container">
+          <!--workspace canvas -->
+          <canvas id="workspaceCanvas" class="workspace-canvas"></canvas>
+        </div>
+      </div>
     </div>
   </div>
 </div>
