@@ -18,101 +18,123 @@
   <!-- general style -->
   <link rel="stylesheet" type="text/css" href="/css/general.css"/>
 
-  .fakeimg {
-    height: 200px;
-    background: #aaa;
-  }
   </style>
 </head>
 <body>
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <h1>ExpoMapper</h1>
-  <p>ExpoArtesanias de colombia Mapeo de Ferias y eventos!</p> 
-</div>
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-  <a class="navbar-brand" href="/">HOME </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Sign out</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#"></a>
-      </li>    
-    </ul>
-  </div>  
-</nav>
-
-<div id="mainBodyContainer" class="container" style="margin-top:30px">
-  <div class="row" id="headerRow">
-    <div class="col-sm-8">
-        
-      <h3>Que desea hacer:</h3>
-      <p></p>
-      <ul class="nav nav-pills flex-column">
-        <!-- <li class="nav-item">
-          <a class="nav-link active" href="index">Pagina principal</a>
-        </li> -->
-        <li class="nav-item">
-          <a class="nav-link" href="#">Guardar proyecto</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Exportar proyecto para imprimir</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#"></a>
-        </li>
-      </ul>
-      <hr class="d-sm-none">
-    </div>
-    <div class="col-sm-8">
-      <h2>NUEVO MAPA (NOMBRE)</h2>
-      <h5>Descripcion - Fecha</h5>
-
-      <br>
-      <h2>Espacios</h2>
-      <h5>Formas a usar para los pabellones y stands</h5>
-      <div class="fakeimg">Cuadrados - Circulos - Triangulos</div>
-      
-      <p></p>
-      <p></p>
-    </div>
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <h1>ExpoMapper</h1>
+    <p>ExpoArtesanias de colombia Mapeo de Ferias y eventos!</p> 
   </div>
 
-  <!-- workspace -->
-  <div class="row" id="workspaceRow">
-  <!-- tools -->
-    <div class="col-md-4 no-padding">
-      <div id="toolsContainer" class="tools-container">
-        Tools go here
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="/">HOME </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sign out</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"></a>
+        </li>    
+      </ul>
+    </div>  
+  </nav>
+
+  <!-- main body container. Needs to be container-fluid to span across all screen width-->
+  <div id="mainBodyContainer" class="container" style="margin-top:30px">
+
+    <!-- header row -->
+    <div class="row" id="headerRow">
+      <div class="col-sm-8">
+        <h2>Map (NOMBRE)</h2>
       </div>
     </div>
+    <!-- header row  end -->
 
-    <!--canvas for map -->
-    <div class="col-md-8 no-padding">
-      <!--workspace container for canvas -->
-      <div id="workspaceContainer" class="workspace-container">
-        <!--canvas container -->
-        <div id="canvasContainer" class="outer-canvas-container">
-          <!--workspace canvas -->
-          <canvas id="workspaceCanvas" class="workspace-canvas"></canvas>
+    <!-- workspace row-->
+    <div class="row" id="workspaceRow">
+
+      <!-- tools column -->
+      <div class="col-sm-2 tools-column">
+
+          <!-- canvas actions row-->
+          <div class="row" id="canvasActions">
+
+            <!-- canvas action column -->
+            <div class="col-sm-12">
+
+            <!-- canvas actions header row -->
+            <div class="row" id="actionsHeader">
+              <div class="col-sm-12 tools-header-column">Actions</div>
+            </div>
+            <!-- canvas actions header row end -->
+
+            <!-- canvas actions first row-->
+            <div class="row" id="actionsFirstLevel">
+              <div class="col-sm-6 canvas-action-button">+ pabellon</div>
+              <div class="col-sm-6 canvas-action-button">- pabellon</div>
+            </div>
+            <!-- canvas actions first row end -->
+
+            <!-- canvas actions second row-->
+            <div class="row" id="actionsSecondLevel">
+              <div class="col-sm-6 canvas-action-button">+ stand</div>
+              <div class="col-sm-6 canvas-action-button">- stand</div>
+            </div>
+            <!-- canvas actions second row end -->
+
+             <!-- canvas objects listing row -->
+            <div class="row" id="canvasObjectListing">
+              <div class="col-sm-12 tools-header-column">Pabellones</div>
+            </div>
+            <!-- canvas objects listing row end -->
+          </div>
+          <!-- canvas action column end -->
+        </div>
+        <!-- canvas action row end -->
+      </div>
+      <!-- tools column end -->
+
+      <!--canvas column -->
+      <div class="col-sm-8 workspace-panel">
+        <!--workspace container for canvas -->
+        <div id="workspaceContainer" class="workspace-container">
+          <!--canvas container -->
+          <div id="canvasContainer" class="outer-canvas-container">
+            <!--workspace canvas -->
+            <canvas id="workspaceCanvas" class="workspace-canvas"></canvas>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</div>
+       <!--canvas column end -->
 
-<div class="jumbotron text-center" style="margin-bottom:0">
-  <p>Footer</p>
-</div>
+      <!--properties column -->
+      <div class="col-sm-2 properties-column">
+        <!-- tools container -->
+        <div id="propertiesContainer" class="properties-container">
+          Properties go here
+        </div>
+      </div>
+      <!--properties column end -->
+
+    </div>
+    <!-- workspace row end -->
+
+  </div>
+  <!-- main body container end -->
+
+  <!-- footer -->
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <p>Footer</p>
+  </div>
+  <!-- footer end -->
 
 </body>
 </html>

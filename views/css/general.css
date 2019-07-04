@@ -1,11 +1,15 @@
-.no-padding {
+.workspace-side-panel {
+    padding: 0px;
+}
+
+.workspace-panel {
     padding: 0px;
 }
 
 .workspace-container {
     border-style: solid;
+    border-width: thin;
     border-color: gray;
-    min-width: 100%;
     min-height: 600px;
 }
 
@@ -19,9 +23,31 @@
     min-width: 100%;
 }
 
-.tools-container {
+.tools-column {
+    padding: 0px;
     border-style: solid;
+    border-width: thin;
     border-color: blue;
-    max-width: 1005;
     min-height: 600px;
+}
+
+.tools-header-column {
+    border-style: solid;
+    border-width: thin;
+    border-color: green;
+}
+
+.properties-column {
+    padding: 0px;
+    border-style: solid;
+    border-width: thin;
+    border-color: yellow;
+    max-width: 100%;
+    min-height: 600px;
+}
+
+.canvas-action-button {
+    border-style: solid;
+    border-width: thin;
+    border-color: green;
 }
