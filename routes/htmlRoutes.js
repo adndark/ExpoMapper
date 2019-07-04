@@ -12,7 +12,9 @@ module.exports = function(app) {
     app.get("/newMap", function(req, res) {
       res.sendFile(path.join(__dirname, "../views/newMap.html"));
     });
-
+    app.get("/artisan", function(req, res) {
+      res.sendFile(path.join(__dirname, "../views/artisan.html"));
+    });
     app.get("/test", function(req, res) {
         console.log("Request to get test");
       res.sendFile(path.join(__dirname, "../public/test.html"));
