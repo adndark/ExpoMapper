@@ -1,25 +1,5 @@
 
 $(function() {
-
-  function getArtisans() {
-    $.get("/api/artisans", function(data) {
-      console.log(data);      
-    });
-  }
-
-
-  $("#find-artisans").on("click", function(event) {
-
-    // Send the GET request.
-    $.ajax( {
-      type: "GET",
-      url:"/api/artisans"
-    }).then(getArtisans);
-        // location.reload();
-      
-    
-  });
-
     
     $(".change-user").on("click", function(event) {
       var id = $(this).data("id");
@@ -42,27 +22,30 @@ $(function() {
       );
     });
   
-    $("#save-artisan").on("click", function(event) {
+    $("#save-section").on("click", function(event) {
       // Make sure to preventDefault on a submit event.
       event.preventDefault();
 
-      var elements = document.getElementById("artisan-form").elements;
+      var elements = document.getElementById("section-info").elements;
 
-      var newUser ={};
+      var newSection ={};
       for(var i = 0 ; i < elements.length ; i++){
       var item = elements.item(i);
       console.log(item);
-      newUser[item.id] = item.value;
+      newSection[item.id] = item.value;
       }
+
+      console.log(newSection);
+      
   
        
       // Send the POST request.
-      $.ajax("/api/artisans", {
+      $.ajax("/api/sections", {
         type: "POST",
-        data: newUser
+        data: newSection
       }).then(
         function() {
-          console.log("created new artisan");
+          console.log("created new section");
           // Reload the page to get the updated list
           location.reload();
         }

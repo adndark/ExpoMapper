@@ -63,4 +63,37 @@ module.exports = function(app) {
     });
   });
 
+  
+//  ----------------Section Routes ------------------------ //
+
+  // Get all sections
+  app.get("/api/sections", function(req, res) {
+    db.Section.findAll({}).then(function(dbSection) {
+      res.json(dbSection);
+    });
+  });
+
+  // Create a new section
+  app.post("/api/sections", function(req, res) {
+    db.Section.create(req.body).then(function(dbSection) {
+      res.json(dbSection);
+    });
+  });
+
+  // Delete an Section by id
+  app.delete("/api/sections/:id", function(req, res) {
+    db.Section.destroy({ where: { id: req.params.id } }).then(function(dbSection) {
+      res.json(dbSection);
+    });
+  });
+  app.get("/api/sections/:id", function(req, res) {
+    db.Section.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbSection) {
+      res.json(dbSection);
+    });
+  });
+
 };

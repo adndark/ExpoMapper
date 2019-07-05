@@ -35,10 +35,10 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">Create new Floor</a>
+                        <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#"></a>
+                        <a class="nav-link js-scroll-trigger" href="#">List of artisans</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="#">Data</a>
@@ -57,14 +57,23 @@
 
     <section id="dashboard">
         <div class="container" style="margin-top:30px">
+
+            
             <div class="row">
-                <div class="col-lg-12 text-center">
+                <div class="col-lg-8 text-center">
                     <h3 class="section-heading text-uppercase">New Artisan form</h3>
                     <h3 class="section-subheading text-muted"> </h3>
                 </div>
+                <!-- <div class="col-lg-4 text-center">
+                    <h3 class="section-heading text-uppercase">Artisans</h3>
+                    <h3 class="section-subheading text-muted"> </h3>
+                </div> -->
             </div>
             <div class="row">
-                <div class="col-lg-12">
+                <div class="col-lg-8">
+                        
+
+
                     <form id="artisan-form" name="sentMessage" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
@@ -142,14 +151,28 @@
                         <div id="success"></div>
                         <button id="save-artisan" class="btn btn-primary btn-xl text-uppercase" type="button">Save</button>
                     </div>
+                    
                         </div>
+                        
                     </form>
+                    
                 </div>
+
+                <div class="col-lg-4 text-center">
+                        <h4 class="section-heading text-uppercase">Artisans </h4>
+                        <button id="find-artisans" class="btn btn-primary btn-x2 text-uppercase" type="button">List</button>
+                    </div>
             </div>
+
+           
+                
+        
 
         </div>
 
     </section>
+
+    
 
 
 
@@ -181,8 +204,8 @@
     </footer>
 
 
-<!-- 
-    <script src="../public/js/app.js"></script> -->
+
+    <!-- <script src="../public/js/app.js"></script> -->
     <!-- <script src="/js/app.js"></script> -->
     <script src="/js/artisan.js"></script>
 </body>
