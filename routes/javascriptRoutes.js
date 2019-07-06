@@ -10,7 +10,6 @@ module.exports = function(app) {
 
     app.get("/lib/workspace/:file", function(req, res) {
         var file = req.params.file;
-        console.log(file);
         res.sendFile(path.join(__dirname, "../lib/workspace/" + file));
     });
   
