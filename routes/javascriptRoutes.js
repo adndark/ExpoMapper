@@ -12,5 +12,5 @@ module.exports = function(app) {
         var file = req.params.file;
         res.sendFile(path.join(__dirname, "../lib/workspace/" + file));
     });
-  
+
 };
