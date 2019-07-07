@@ -2,8 +2,7 @@ module.exports = function(sequelize, DataTypes) {
     var Artisan = sequelize.define("Artisan", {
       ArtisanName: {
         type: DataTypes.STRING,
-        defaultValue: null,
-        unique: true
+        
       },
       phone: {
         type: DataTypes.INTEGER,
@@ -47,6 +46,14 @@ module.exports = function(sequelize, DataTypes) {
       }
 
     });
+
+    Artisan.associate = function(models) {
+      // Associating Author with Posts
+      // When an Author is deleted, also delete any associated Posts
+      Artisan.hasMany(models.Stand, {
+        
+      });
+    };
     
     return Artisan;
   };

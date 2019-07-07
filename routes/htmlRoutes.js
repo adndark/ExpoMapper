@@ -21,7 +21,12 @@ module.exports = function(app) {
     app.get("/section", function(req, res) {
       res.sendFile(path.join(__dirname, "../views/section.html"));
     });
-
+    app.get("/manageData", function(req, res) {
+      res.sendFile(path.join(__dirname, "../views/manage-Data.html"));
+    });
+    app.get("/stand", function(req, res) {
+      res.sendFile(path.join(__dirname, "../views/stand.html"));
+    });
 
     app.get("/test", function(req, res) {
         console.log("Request to get test");

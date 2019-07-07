@@ -29,6 +29,17 @@ module.exports = function(app) {
     }).then(function(dbUser) {
       res.json(dbUser);
     });
+
+
+    app.put("/api/users/:id", function(req, res) {
+      db.User.update(req.body, {
+        where: {
+          id: req.params.id
+        }
+      }).then(function(dbUser) {
+       res.json(dbUser);
+      });
+    });  
   });
 
 //  ----------------Artisan Routes ------------------------ //
@@ -54,12 +65,21 @@ module.exports = function(app) {
     });
   });
   app.get("/api/artisans/:id", function(req, res) {
-    db.User.findOne({
+    db.Artisan.findOne({
       where: {
         id: req.params.id
       }
     }).then(function(dbArtisan) {
       res.json(dbArtisan);
+    });
+  });
+  app.put("/api/artisans/:id", function(req, res) {
+    db.Artisan.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbArtisan) {
+     res.json(dbArtisan);
     });
   });
 
@@ -93,6 +113,60 @@ module.exports = function(app) {
       }
     }).then(function(dbSection) {
       res.json(dbSection);
+    });
+  });
+
+  app.put("/api/sections/:id", function(req, res) {
+    db.Section  .update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbSection) {
+     res.json(dbSection);
+    });
+  });
+
+
+
+  
+//  ----------------Stand Routes ------------------------ //
+
+  // Get all stand
+  app.get("/api/stands", function(req, res) {
+    db.Stand.findAll({}).then(function(dbStand) {
+      res.json(dbStand);
+    });
+  });
+
+  // Create a new stand
+  app.post("/api/stands", function(req, res) {
+    db.Stand.create(req.body).then(function(dbStand) {
+      res.json(dbStand);
+    });
+  });
+
+  // Delete an Stand by id
+  app.delete("/api/stands/:id", function(req, res) {
+    db.Stand.destroy({ where: { id: req.params.id } }).then(function(dbStand) {
+      res.json(dbStand);
+    });
+  });
+  app.get("/api/stands/:id", function(req, res) {
+    db.Stand.findOne({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbStand) {
+      res.json(dbStand);
+    });
+  });
+  app.put("/api/stands/:id", function(req, res) {
+    db.Stand.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbStand) {
+     res.json(dbStand);
     });
   });
 
