@@ -1,4 +1,31 @@
+// Defiine artisan model
 
+const ArtisanModel = Backbone.Model.extend({
+    validate: function(attrs) {
+        if (!attrs.name) {
+            return "Name is required";
+        }
+    },
+    url: "/api/artisans"
+});
+
+// Test artisan model
+const testArtisan = new ArtisanModel({id: 2});
+
+console.log("Fetching artisan with id 2");
+testArtisan.fetch();
+/*
+testArtisan.set("ArtisanName", "test");
+
+testArtisan.save();
+
+const test = new ArtisanModel();
+test.set({"ArtisanName": "testy"});
+test.save();
+
+console.log(testArtisan);
+console.log(JSON.stringify((testArtisan)));
+*/
 $( document ).ready(function() {
   console.log( "ready!" );
 
@@ -39,39 +66,39 @@ function getArtisans() {
 
 function createArtisanRow(artisanData) {
 
-  var newTr = $("<tr>");
-  newTr.data("artisan", artisanData);
-  var values = Object.values(artisanData);
-  console.log(artisanData);
-  
-  
-  values.forEach(function(info,index){
-
-  console.log(info);
-  
-  console.log(index);
-
-});
-  
-newTr.append("<td contenteditable='true' id='ArtisanName'>" + artisanData.ArtisanName+ "</td>");
-newTr.append("<td contenteditable='true' id='phone'>" + artisanData.phone + "</td>");
-newTr.append("<td contenteditable='true' id='email'>" + artisanData.email + "</td>");
-newTr.append("<td contenteditable='true' id='address'>" + artisanData.address + "</td>");
-newTr.append("<td contenteditable='true' id='city'>" + artisanData.city + "</td>");
-newTr.append("<td contenteditable='true' id='community'>" + artisanData.community+ "</td>");
-newTr.append("<td contenteditable='true' id='companyAsso'>" + artisanData.companyAsso + "</td>");
-newTr.append("<td contenteditable='true' id='craft'>" + artisanData.craft + "</td>");
-newTr.append("<td contenteditable='true' id='rawMaterial'>" + artisanData.rawMaterial + "</td>");
-newTr.append("<td contenteditable='true' id='finalProduct'>" + artisanData.finalProduct + "</td>");
-newTr.append("<td contenteditable='true' id='assignee'>" + artisanData.assignee + "</td>");
+    var newTr = $("<tr>");
+    newTr.data("artisan", artisanData);
+    var values = Object.values(artisanData);
+    console.log(artisanData);
 
 
+    values.forEach(function(info, index) {
 
-      
-newTr.append("<td><a style='cursor:pointer;color:red' class='delete-artisan'>Delete Artisan</a></td>");
-newTr.append("<td><a style='cursor:pointer;color:red' class='update-artisan'>Update Artisan</a></td>");
+        console.log(info);
 
-return newTr;
+        console.log(index);
+
+    });
+
+    newTr.append("<td contenteditable='true' id='ArtisanName'>" + artisanData.ArtisanName + "</td>");
+    newTr.append("<td contenteditable='true' id='phone'>" + artisanData.phone + "</td>");
+    newTr.append("<td contenteditable='true' id='email'>" + artisanData.email + "</td>");
+    newTr.append("<td contenteditable='true' id='address'>" + artisanData.address + "</td>");
+    newTr.append("<td contenteditable='true' id='city'>" + artisanData.city + "</td>");
+    newTr.append("<td contenteditable='true' id='community'>" + artisanData.community + "</td>");
+    newTr.append("<td contenteditable='true' id='companyAsso'>" + artisanData.companyAsso + "</td>");
+    newTr.append("<td contenteditable='true' id='craft'>" + artisanData.craft + "</td>");
+    newTr.append("<td contenteditable='true' id='rawMaterial'>" + artisanData.rawMaterial + "</td>");
+    newTr.append("<td contenteditable='true' id='finalProduct'>" + artisanData.finalProduct + "</td>");
+    newTr.append("<td contenteditable='true' id='assignee'>" + artisanData.assignee + "</td>");
+
+
+
+
+    newTr.append("<td><a style='cursor:pointer;color:red' class='delete-artisan'>Delete Artisan</a></td>");
+    newTr.append("<td><a style='cursor:pointer;color:red' class='update-artisan'>Update Artisan</a></td>");
+
+    return newTr;
 }
 
 // A function for rendering the list of artisans to the page
