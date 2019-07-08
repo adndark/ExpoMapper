@@ -1,33 +1,56 @@
 // Defiine artisan model
-
 const ArtisanModel = Backbone.Model.extend({
-    validate: function(attrs) {
-        if (!attrs.name) {
-            return "Name is required";
-        }
-    },
+    // Url to fetch data from
     urlRoot: "/api/artisans",
-    //url: "/api/artisans" // It may use url too
+});
+
+// Define artisan collection which retrives data for
+// a given user id
+const ArtisanCollection = Backbone.Collection.extend({
+    model: ArtisanModel,
+    url: "/api/artisansByUserId"
 });
 
 // Test artisan model
-const testArtisan = new ArtisanModel({id: 2});
+const testArtisan = new ArtisanModel({ id: 2 });
 
 console.log("Fetching artisan with id 2");
-testArtisan.fetch();
+testArtisan.fetch({
+    success: function() {
+        console.log("Test artisan");
+        console.log(JSON.stringify((testArtisan)));
+        console.log((testArtisan));
+        console.log("Setting ArtisanName")
+        testArtisan.set("ArtisanName", new Date().getTime());
+        console.log("Save artisan");
+        testArtisan.save();
+    }
+});
+
 console.log(JSON.stringify((testArtisan)));
-/*
-testArtisan.set("ArtisanName", "test");
 
-testArtisan.save();
+const artisanCollection = new ArtisanCollection();
+artisanCollection.fetch({
+    success: function() {
+        console.log("artisanCollection");
+        console.log(JSON.stringify((artisanCollection)));
+        console.log((artisanCollection));
+        console.log("Artisan with id " + JSON.stringify(artisanCollection.get(5)));
+        console.log(artisanCollection.get(5));
+        console.log("Modifying artisan's name");
+        const art = artisanCollection.get(5).set("ArtisanName", "AnotherTesty123");
+        art.save();
+    }
+});
 
+// Create test artisan
 const test = new ArtisanModel();
 test.set({"ArtisanName": "testy"});
 test.save();
 
-console.log(testArtisan);
+console.log(test);
 
-*/
+
 $( document ).ready(function() {
   console.log( "ready!" );
 
