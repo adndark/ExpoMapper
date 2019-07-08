@@ -6,7 +6,8 @@ const ArtisanModel = Backbone.Model.extend({
             return "Name is required";
         }
     },
-    url: "/api/artisans"
+    urlRoot: "/api/artisans",
+    //url: "/api/artisans" // It may use url too
 });
 
 // Test artisan model
@@ -14,6 +15,7 @@ const testArtisan = new ArtisanModel({id: 2});
 
 console.log("Fetching artisan with id 2");
 testArtisan.fetch();
+console.log(JSON.stringify((testArtisan)));
 /*
 testArtisan.set("ArtisanName", "test");
 
@@ -24,7 +26,7 @@ test.set({"ArtisanName": "testy"});
 test.save();
 
 console.log(testArtisan);
-console.log(JSON.stringify((testArtisan)));
+
 */
 $( document ).ready(function() {
   console.log( "ready!" );
