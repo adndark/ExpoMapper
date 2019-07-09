@@ -94,6 +94,17 @@ module.exports = function(app) {
     });
   });
 
+
+  app.get("/api/artisansByUserId/:id", function(req, res) {
+      db.Artisan.findAll({
+          where: {
+              userId: req.params.id,
+          }
+      }).then(function(dbArtisan) {
+          res.json(dbArtisan);
+      });
+  });
+
   
 //  ----------------Section Routes ------------------------ //
 

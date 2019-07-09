@@ -7,8 +7,19 @@ const ArtisanModel = Backbone.Model.extend({
 // Define artisan collection which retrives data for
 // a given user id
 const ArtisanCollection = Backbone.Collection.extend({
+
+    // Override initialize
+    initialize: function(models, options) {
+        this.userId = options.userId;
+    },
+
+    // Define model
     model: ArtisanModel,
-    url: "/api/artisansByUserId"
+
+    // Override url function
+    url: function() {
+        return "/api/artisansByUserId/" + this.userId;
+    }
 });
 
 // Test artisan model
@@ -29,7 +40,8 @@ testArtisan.fetch({
 
 console.log(JSON.stringify((testArtisan)));
 
-const artisanCollection = new ArtisanCollection();
+const artisanCollection = new ArtisanCollection([], {userId: 1});
+artisanCollection.url = "/api/artisansByUserId/1";
 artisanCollection.fetch({
     success: function() {
         console.log("artisanCollection");
