@@ -1,13 +1,3 @@
-  // Render artisan table
-  console.log("Instantiate ArtisanTable and wait for model change");
-  const artisansByUser = new ArtisanCollection([], { userId: 1 });
-  const artisanTable = new ArtisanTable({ el: "#tableTest", model: artisansByUser });
-  artisansByUser.fetch({
-
-      success: function() {
-          artisanTable.render();
-      }
-  });
 
 $( document ).ready(function() {
   console.log( "ready!" );
@@ -20,7 +10,7 @@ $(function() {
 
 var dataList = $("#artisanBody");
 var dataContainer = $(".data-container");
-$(document).on("click", ".delete-artisan", handleDeleteButtonPress);
+//$(document).on("click", ".delete-artisan", handleDeleteButtonPress);
 $(document).on("click", ".update-artisan", handleUpdateButtonPress);
 
 function upsertArtisan(artisanData) {
@@ -110,10 +100,22 @@ $("#getArtisanInfo").on("click", function(event) {
   $("#sectionsHead").hide();
   $("#sectionsBody").hide();
   //upsertArtisan();
+
+    // Render artisan table
+  console.log("Instantiate ArtisanTable and wait for model change");
+  const artisansByUser = new ArtisanCollection([], { userId: 1 });
+  const artisanTable = new ArtisanTable({ el: "#tableTest", model: artisansByUser });
+  artisansByUser.fetch({
+
+      success: function() {
+          artisanTable.render();
+      }
+  });
+
 });
 
   function handleDeleteButtonPress() {
-  var listItemData = $(this).parent("td").parent("tr").data("artisan");
+/*  var listItemData = $(this).parent("td").parent("tr").data("artisan");
   var id = listItemData.id;
 
 
@@ -121,7 +123,7 @@ $("#getArtisanInfo").on("click", function(event) {
     method: "DELETE",
     url: "/api/artisans/" + id
   }).then(getArtisans);
-  location.reload();
+  location.reload();*/
 }
 
 function handleUpdateButtonPress() {

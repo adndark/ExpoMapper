@@ -22,16 +22,25 @@ function generateArtisanTableHeader() {
 
 const ArtisanRow = Backbone.View.extend({
 
+    events: {
+        "click .delete-artisan": "deleteArtisan"
+    },
+
+    deleteArtisan: function() {
+        this.remove();
+        //this.model.destroy()
+        console.log("Deleting artisan with id " + this.model.get("id"));
+        //this.model.trigger('delete', this.model);
+        this.model.destroy();
+    },
+
     tagName: "tr",
 
     render: function() {
 
-        console.log("Rendering row");
         const self = this;
         _.each(artisanColumn, function(val, key) {
-            console.log("Getting " + key);
             const column = "<td contenteditable='true' id='" + key + "'>" + self.model.get(key) + "</tr>";
-            console.log(column);
             self.$el.append(column);
         });
         // Create buttons
