@@ -2,177 +2,170 @@
 <html lang="en">
 
 <head>
-  <title>ExpoMapper</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>ExpoMapper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-  <style>
-    .fakeimg {
-      height: 200px;
-      background: #aaa;
-    }
-  </style>
-  <!-- <link href="../public/styles/style.css" rel="stylesheet"> -->
-  <link href="/styles/style.css" rel="stylesheet">
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+    <link href="/styles/style.css" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Data</a>
-          </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">!!!</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-
-  <section id="dashboard">
-    <div class="container" style="margin-top:30px">
-      <div class="row">
-        <div class="col-sm-8">
-          <h2>Floors</h2>
-          <h5>Maps in process</h5>
-          <div class="fakeimg">Image</div>
-          <p></p>
-          <h3>TODO:</h3>
-          <p></p>
-          <ul class="nav nav-pills flex-column">
-            <li class="nav-item">
-              <button id="newMap" class="btn btn-primary" type="submit">Create a new floor</button>
-            </li>
-            <li class="nav-item">
-              <a id="useTemplate" class="nav-link" href="#">Use a template</a>
-            </li>
-            <li class="nav-item">
-              <a id="dataManag" class="nav-link" href="#">Data management and report</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#"></a>
-            </li>
-          </ul>
-          <hr class="d-sm-none">
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
-        </div>
-        <div class="col-md-4">
-
-        </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </footer>
-
-
-  <!-- Modal -->
-  <div id="results-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h2 class="modal-title"><strong>New Map</strong></h2>
-        </div>
-        <div class="modal-body">
-          <form id="map-form">
-            <div class="form-row">
-              <div class="col-md-8 mb-3">
-                <label for="map-name">Map Name</label>
-                <input type="text" class="form-control" id="map-name" placeholder="Map name" value="" required>
-                <div class="valid-feedback">
-
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="sections">Number of sections</label>
-                <input type="text" class="form-control" id="sections" placeholder="# of sections" value="">
-                <div class="valid-feedback">
-
-                </div>
-              </div>
-              <div class="col-md-4 mb-3">
-                <label for="validationServerUsername">Capacity</label>
-                <div class="input-group">
-
-                  <input type="text" class="form-control" id="validationServerUsername" placeholder="Capacity" value="">
-                  <div class="invalid-feedback">
-
-                  </div>
-                </div>
-              </div>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="section">New section</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="stand">New stand</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="manageData">Manage Data</a>
+                    </li>
+                </ul>
             </div>
-            <div class="form-row">
-              <div class="col-md-6 mb-3">
-                <label for="validationServer03">Parking space</label>
-                <input type="text" class="form-control" id="validationServer03" placeholder="Parking space" value="">
-                <div class="invalid-feedback">
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="validationServer04">Entry/exit doors </label>
-                <input type="text" class="form-control" id="validationServer04" placeholder="Entry/exit doors "
-                  value="">
-                <div class="invalid-feedback">
+        </div>
+    </nav>
 
-                </div>
-              </div>
-              <div class="col-md-3 mb-3">
-                <label for="validationServer05">Restrooms</label>
-                <input type="text" class="form-control" id="validationServer05" placeholder="Restrooms" value="">
-                <div class="invalid-feedback">
 
+    <section id="dashboard">
+        <div class="container" style="margin-top:30px">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h2>Floors</h2>
+                    <h5>Maps in process</h5>
+                    <div class="fakeimg">Image</div>
+                    <p></p>
+                    <h3>TODO:</h3>
+                    <p></p>
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item">
+                            <button id="newMap" class="btn btn-primary" type="submit">Create a new floor</button>
+                        </li>
+                        <li class="nav-item">
+                            <a id="dataManag" class="nav-link" href="#">Data management and report</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#"></a>
+                        </li>
+                    </ul>
+                    <hr class="d-sm-none">
                 </div>
-              </div>
+
             </div>
-            <!-- <div class="form-group">
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Modal -->
+    <div id="results-modal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h2 class="modal-title"><strong>New Map</strong></h2>
+                </div>
+                <div class="modal-body">
+                    <form id="map-form">
+                        <div class="form-row">
+                            <div class="col-md-8 mb-3">
+                                <label for="map-name">Map Name</label>
+                                <input type="text" class="form-control" id="map-name" placeholder="Map name" value="" required>
+                                <div class="valid-feedback">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="sections">Number of sections</label>
+                                <input type="text" class="form-control" id="sections" placeholder="# of sections" value="">
+                                <div class="valid-feedback">
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="validationServerUsername">Capacity</label>
+                                <div class="input-group">
+
+                                    <input type="text" class="form-control" id="validationServerUsername" placeholder="Capacity" value="">
+                                    <div class="invalid-feedback">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationServer03">Parking space</label>
+                                <input type="text" class="form-control" id="validationServer03" placeholder="Parking space" value="">
+                                <div class="invalid-feedback">
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer04">Entry/exit doors </label>
+                                <input type="text" class="form-control" id="validationServer04" placeholder="Entry/exit doors " value="">
+                                <div class="invalid-feedback">
+
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-3">
+                                <label for="validationServer05">Restrooms</label>
+                                <input type="text" class="form-control" id="validationServer05" placeholder="Restrooms" value="">
+                                <div class="invalid-feedback">
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="form-group">
                 <div class="form-check">
                   <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
                   <label class="form-check-label" for="invalidCheck3">
@@ -183,23 +176,23 @@
                   </div>
                 </div>
               </div> -->
-            <!-- <button class="btn btn-primary" type="submit">Create Map</button> -->
-          </form>
-          <h2 id="map-name"></h2>
-          <img id="map-img" src="" alt="" width="400px" height="400px">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <!-- <button class="btn btn-primary" type="submit">Create Map</button> -->
+                    </form>
+                    <h2 id="map-name"></h2>
+                    <img id="map-img" src="" alt="" width="400px" height="400px">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
-          <button type="button" id="newMapInfo" class="btn btn-default" data-dismiss="modal">Create New Map</button>
-        </div>
-      </div>
+                    <button type="button" id="newMapInfo" class="btn btn-default" data-dismiss="modal">Create New Map</button>
+                </div>
+            </div>
 
+        </div>
     </div>
-  </div>
 
-  <script src="../public/js/app.js"></script>
-  <!-- <script src="/js/app.js"></script> -->
+    <script src="../public/js/app.js"></script>
+    <!-- <script src="/js/app.js"></script> -->
 </body>
 
 </html>

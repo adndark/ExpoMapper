@@ -18,16 +18,14 @@
             background: #aaa;
         }
     </style>
-    <!-- <link href="../public/styles/style.css" rel="stylesheet"> -->
     <link href="/styles/style.css" rel="stylesheet">
 </head>
 
 <body>
-
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
+            <a class="navbar-brand js-scroll-trigger" href="#">ExpoMapper</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
@@ -38,16 +36,13 @@
                         <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">List of artisans</a>
+                        <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#"></a>
+                        <a class="nav-link js-scroll-trigger" href="section">New section</a>
                     </li>
-                    <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li> -->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#"></a>
+                        <a class="nav-link js-scroll-trigger" href="stand">New stand</a>
                     </li>
                 </ul>
             </div>
@@ -55,6 +50,7 @@
     </nav>
 
     <body>
+<<<<<<< HEAD
     <section>
         <div class="container">
           <div class="row mt-4">
@@ -96,44 +92,41 @@
                                 <tbody id="artisanBody">
                                 </tbody>
                             </table>
+=======
+        <section>
+            <div class="container">
+                <div class="row mt-4">
+                    <div class="col-md-2 col-sm-2">
+                        <button id="getArtisanInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Artisan</button>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <button id="getSectionInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Section</button>
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        <button id="getStandInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Stand</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <!-- Stands from backbone view -->
+                        <div id="artisanHead" class="data-container">
+                            <h1>Artisans</h1>
+                            <div id="tableTest"></div>
+>>>>>>> Stand - sections  models and views - deleting unnecesary code in HTML files
                         </div>
-                        <!-- SECTIONS -------------------------------------------- -->
-
+                        <!-- Sections from backbone view -->
                         <div id="sectionsHead" class="data-container">
-                            <h1>Sections</h1>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Section Name</th>
-                                        <th>Capacity</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="sectionsBody">
-                                </tbody>
-                            </table>
+                            <div id="sectionsTable"></div>
                         </div>
-                        <!-- STAND -------------------------------------------- -->
-
-                        <div id="standsHead" class="data-container">
-                            <h1>Stand</h1>
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Stand Name</th>
-                                        <th>Artisan</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="table-body">
-                                </tbody>
-                            </table>
+                        <!-- Stands from backbone view -->
+                        <div id="sectionsHead" class="data-container">
+                            <div id="standsTable"></div>
                         </div>
-
-
-
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- Footer -->
         <footer>
             <div class="container">
@@ -158,10 +151,29 @@
             </div>
         </footer>
 
+<<<<<<< HEAD
     <script src="/js/models/artisan.js"></script>
     <script src="/js/views/artisan.js"></script>
     <script src="/js/artisan.js"></script>
     <script src="/js/section.js"></script>
 </body>
+=======
+        <!-- JavaScrip files for artisan models and views -->
+        <script src="/js/models/artisan.js"></script>
+        <script src="/js/views/artisan.js"></script>
+        <script src="/js/artisan.js"></script>
+
+        <!-- JavaScrip files for section models and views -->
+        <script src="/js/models/section.js"></script>
+        <script src="/js/views/section.js"></script>
+        <script src="/js/section.js"></script>
+
+        <!-- JavaScrip files for stand models and views -->
+        <script src="/js/models/stand.js"></script>
+        <script src="/js/views/stand.js"></script>
+        <script src="/js/stand.js"></script>
+
+    </body>
+>>>>>>> Stand - sections  models and views - deleting unnecesary code in HTML files
 
 </html>

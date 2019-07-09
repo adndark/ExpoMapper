@@ -1,12 +1,12 @@
 // Define stand model
-const StandModel = backbone.Model.extend({
+const StandModel = Backbone.Model.extend({
     //Url to fetch the data from:
     urlRoot: "/api/stands",
 });
 
 //Define stand collection which retrives data for
 // a given Section id
-const StandModelCollection = backBone.Collection.extend({
+const StandsCollection = Backbone.Collection.extend({
 
     //Override initialize 
     initialize: function(models, options) {

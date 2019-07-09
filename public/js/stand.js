@@ -1,33 +1,16 @@
+console.log("Instantiate Stand Table and wait for model change");
+const standsBySection = new StandsCollection([], { SectionId: 1 });
 
-$(function() {
+console.log(standsBySection);
 
-      
-      $("#save-stand").on("click", function(event) {
-        // Make sure to preventDefault on a submit event.
-        event.preventDefault();
-  
-        var elements = document.getElementById("stand-info").elements;
-  
-        var newStand ={};
-        for(var i = 0 ; i < elements.length ; i++){
-        var item = elements.item(i);
-        console.log(item);
-        newStand[item.id] = item.value;
+const standTable = new StandTable({ el: "#standsTable", model: standsBySection });
+
+$("#getStandInfo").on("click", function(event) {
+
+    standsBySection.fetch({
+
+        success: function() {
+            standTable.render();
         }
-    
-         
-        // Send the POST request.
-        $.ajax("/api/stands", {
-          type: "POST",
-          data: newStand
-        }).then(
-          function() {
-            console.log("created new stand");
-            // Reload the page to get the updated list
-            location.reload();
-          }
-        );
-      });
-    
-      
     });
+});

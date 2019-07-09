@@ -26,28 +26,26 @@
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 Menu
                 <i class="fas fa-bars"></i>
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">Create new Floor</a>
+                        <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#"></a>
+                        <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">Data</a>
+                        <a class="nav-link js-scroll-trigger" href="section">New section</a>
                     </li>
-                    <!-- <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-          </li> -->
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#">!!!</a>
+                        <a class="nav-link js-scroll-trigger" href="stand">New stand</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="manageData">Manage Data</a>
                     </li>
                 </ul>
             </div>
@@ -70,13 +68,15 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <label for="section-artisan">Section Name</label>
-                                    <input type="text" class="form-control" id="sectionName" placeholder="Section Name"
-                                        value="" required>
+                                    <input type="text" class="form-control" id="sectionName" placeholder="Section Name" value="" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="capacity">Capacity</label>
-                                    <input type="text" class="form-control" id="capacity" placeholder="capacity"
-                                        value="" required>
+                                    <input type="text" class="form-control" id="capacity" placeholder="capacity" value="" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="floor">Floor</label>
+                                    <input type="text" class="form-control" id="FloorId" placeholder="floor" value="" required>
                                 </div>
 
                                 <div class="col-md-6">
@@ -85,15 +85,14 @@
                                 <div class="clearfix"></div>
                                 <div class="col-lg-12 text-center">
                                     <div id="success"></div>
-                                    <button id="save-section" class="btn btn-primary btn-xl text-uppercase"
-                                        type="button">Save</button>
+                                    <button id="save-section" class="btn btn-primary btn-xl text-uppercase" type="button">Save</button>
                                 </div>
                             </div>
                     </form>
+                    </div>
                 </div>
-            </div>
 
-        </div>
+            </div>
 
     </section>
 
