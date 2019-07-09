@@ -2,7 +2,8 @@
 const testArtisan = new ArtisanModel({ id: 2 });
 
 console.log("Fetching artisan with id 2");
-testArtisan.fetch({
+testArtisan.fetch(
+/*{
     success: function() {
         console.log("Test artisan");
         console.log(JSON.stringify((testArtisan)));
@@ -12,37 +13,53 @@ testArtisan.fetch({
         console.log("Save artisan");
         testArtisan.save();
     }
-});
+}*/
+);
 
 console.log(JSON.stringify((testArtisan)));
 
-const artisanCollection = new ArtisanCollection([], {userId: 1});
-artisanCollection.url = "/api/artisansByUserId/1";
-artisanCollection.fetch({
+/*const artisanCollection = new ArtisanCollection([], { userId: 1 });
+artisanCollection.fetch(
+{
     success: function() {
         console.log("artisanCollection");
         console.log(JSON.stringify((artisanCollection)));
         console.log((artisanCollection));
-        console.log("Artisan with id " + JSON.stringify(artisanCollection.get(5)));
-        console.log(artisanCollection.get(5));
+        console.log("Artisan with id " + JSON.stringify(artisanCollection.get(1)));
+        console.log(artisanCollection.get(1));
         console.log("Modifying artisan's name");
-        const art = artisanCollection.get(5).set("ArtisanName", "AnotherTesty123");
+        const art = artisanCollection.get(1).set("ArtisanName", "AnotherTesty123");
         art.save();
     }
-});
+}
+);*/
 
 // Create test artisan
-const test = new ArtisanModel();
-test.set({"ArtisanName": "testy"});
+/*const test = new ArtisanModel();
+test.set({ "ArtisanName": "testy" });
+test.set({ "UserId": "1" });
 test.save();
 
-console.log(test);
+console.log(test);*/
+
+// Render artisan table
+console.log("Instantiate ArtisanTable and wait for model change");
+const artisansByUser = new ArtisanCollection([], { userId: 1 });
+const artisanTable = new ArtisanTable({ el: "#tableTest", model: artisansByUser });
+/*artisansByUser.fetch({
+
+    success: function() {
+        artisanTable.render();
+    }
+});*/
+
+
 
 
 $( document ).ready(function() {
   console.log( "ready!" );
 
-  $("#artisanHead").hide();
+  $("#artisanHead").show();
 });
 
 
@@ -139,7 +156,13 @@ $("#getArtisanInfo").on("click", function(event) {
   $('#artisanBody').empty()
   $("#sectionsHead").hide();
   $("#sectionsBody").hide();
-  upsertArtisan();
+  //upsertArtisan();
+  artisansByUser.fetch({
+
+      success: function() {
+          artisanTable.render();
+      }
+  });
 });
 
 function handleDeleteButtonPress() {
