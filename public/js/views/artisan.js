@@ -6,9 +6,9 @@ const artisanColumn = {
     city: "City",
     community: "Community",
     craft: "Craft",
-    rawMaterial: "RawMaterial",
-    finalProduct: "finalProduct",
-    assignee: "assignee",
+    rawMaterial: "Raw Material",
+    finalProduct: "Final Product",
+    assignee: "Assignee",
     aditionalInfo: "Additional Info"
 };
 
@@ -63,14 +63,17 @@ const ArtisanTable = Backbone.View.extend({
     render: function() {
 
         console.log("Rendering table");
-        const table = $("<table class=\"table table-striped aaaa\">");
+        const table = $("<table class=\"table table-striped\">");
         // Generate table header
         table.append(generateArtisanTableHeader());
         let tbody = $("<tbody id=\"artisanBody\"> </tbody>");
         this.model.each(function(artisan) {
-            console.log("Artisan " + JSON.stringify(artisan));
-            const artisanRowView = new ArtisanRow({ $el: this.$el, model: artisan });
-            tbody.append(artisanRowView.render().$el);
+            //console.log("Artisan " + JSON.stringify(artisan));
+            const artisanRowView = new ArtisanRow({ model: artisan });
+            // Generate artisan row jquery object by calling render
+            artisanRowView.render();
+            // Append jquery element into tbody
+            tbody.append(artisanRowView.$el);
         });
         table.append(tbody);
         this.$el.append(table);
