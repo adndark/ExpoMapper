@@ -23,11 +23,8 @@ module.exports = function(app) {
             res.json(dbUser);
         });
     });
-<<<<<<< Updated upstream
 
     // Get users by id
-=======
->>>>>>> Stashed changes
     app.get("/api/users/:id", function(req, res) {
         db.User.findOne({
             where: {
@@ -36,7 +33,6 @@ module.exports = function(app) {
         }).then(function(dbUser) {
             res.json(dbUser);
         });
-<<<<<<< Updated upstream
     });
 
     // Get a user by id
@@ -47,28 +43,11 @@ module.exports = function(app) {
             }
         }).then(function(dbUser) {
             res.json(dbUser);
-=======
-
-
-        app.put("/api/users/:id", function(req, res) {
-            db.User.update(req.body, {
-                where: {
-                    id: req.params.id
-                }
-            }).then(function(dbUser) {
-                res.json(dbUser);
-            });
->>>>>>> Stashed changes
         });
     });
 
     //  ----------------Artisan Routes ------------------------ //
-<<<<<<< Updated upstream
     // Get all artisans that belong to a user id
-=======
-
-    // Get all artisans
->>>>>>> Stashed changes
     app.get("/api/artisansByUserId/:id", function(req, res) {
         db.Artisan.findAll({
             where: {
@@ -79,11 +58,7 @@ module.exports = function(app) {
         });
     });
 
-<<<<<<< Updated upstream
     // Get all artisans in DB, bad bad idea
-=======
-
->>>>>>> Stashed changes
     app.get("/api/artisans", function(req, res) {
         db.Artisan.findAll({}).then(function(dbArtisan) {
             res.json(dbArtisan);
@@ -103,11 +78,8 @@ module.exports = function(app) {
             res.json(dbArtisan);
         });
     });
-<<<<<<< Updated upstream
 
     // Get artisan by id
-=======
->>>>>>> Stashed changes
     app.get("/api/artisans/:id", function(req, res) {
         db.Artisan.findOne({
             where: {
@@ -117,11 +89,8 @@ module.exports = function(app) {
             res.json(dbArtisan);
         });
     });
-<<<<<<< Updated upstream
 
     // Update artisan by id
-=======
->>>>>>> Stashed changes
     app.put("/api/artisans/:id", function(req, res) {
         db.Artisan.update(req.body, {
             where: {
@@ -132,11 +101,18 @@ module.exports = function(app) {
         });
     });
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     //  ----------------Section Routes ------------------------ //
+
+    // Get all sections that belong to a floor id
+    app.get("/api/sectionsByFloorId/:id", function(req, res) {
+        db.Section.findAll({
+            where: {
+                FloorId: req.params.id
+            }
+        }).then(function(dbSection) {
+            res.json(dbSection);
+        });
+    });
 
     // Get all sections
     app.get("/api/sections", function(req, res) {
@@ -158,11 +134,8 @@ module.exports = function(app) {
             res.json(dbSection);
         });
     });
-<<<<<<< Updated upstream
 
     // Get sections by id
-=======
->>>>>>> Stashed changes
     app.get("/api/sections/:id", function(req, res) {
         db.Section.findOne({
             where: {
@@ -173,10 +146,7 @@ module.exports = function(app) {
         });
     });
 
-<<<<<<< Updated upstream
     // Update section by id
-=======
->>>>>>> Stashed changes
     app.put("/api/sections/:id", function(req, res) {
         db.Section.update(req.body, {
             where: {
@@ -187,14 +157,17 @@ module.exports = function(app) {
         });
     });
 
-<<<<<<< Updated upstream
-=======
-
-
-
->>>>>>> Stashed changes
     //  ----------------Stand Routes ------------------------ //
-
+    // Get all stands that belong to a section id
+    app.get("/api/standsBySectionId/:id", function(req, res) {
+        db.Stand.findAll({
+            where: {
+                SectionId: req.params.id
+            }
+        }).then(function(dbStand) {
+            res.json(dbStand);
+        });
+    });
     // Get all stand
     app.get("/api/stands", function(req, res) {
         db.Stand.findAll({}).then(function(dbStand) {
@@ -215,11 +188,8 @@ module.exports = function(app) {
             res.json(dbStand);
         });
     });
-<<<<<<< Updated upstream
 
     // Get stand by id
-=======
->>>>>>> Stashed changes
     app.get("/api/stands/:id", function(req, res) {
         db.Stand.findOne({
             where: {
@@ -229,11 +199,8 @@ module.exports = function(app) {
             res.json(dbStand);
         });
     });
-<<<<<<< Updated upstream
 
     // Update stand by id
-=======
->>>>>>> Stashed changes
     app.put("/api/stands/:id", function(req, res) {
         db.Stand.update(req.body, {
             where: {
@@ -243,8 +210,63 @@ module.exports = function(app) {
             res.json(dbStand);
         });
     });
-<<<<<<< Updated upstream
-=======
 
->>>>>>> Stashed changes
+
+    //  ----------------Floor Routes ------------------------ //
+    // Get all floors that belong to a user id
+    app.get("/api/floorsByUserId/:id", function(req, res) {
+        db.Floor.findAll({
+            where: {
+                UserId: req.params.id
+            }
+        }).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
+    // Get all Floors
+    app.get("/api/floors", function(req, res) {
+        db.Floor.findAll({}).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
+
+    // Create a new Floor
+    app.post("/api/floors", function(req, res) {
+        db.Floor.create(req.body).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
+
+    // Delete an Floor by id
+    app.delete("/api/floors/:id", function(req, res) {
+        db.Floor.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
+
+    // Get Floor by id
+    app.get("/api/floors/:id", function(req, res) {
+        db.Floor.findOne({
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
+
+    // Update Floor by id
+    app.put("/api/floor/:id", function(req, res) {
+        db.Floor.update(req.body, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function(dbFloor) {
+            res.json(dbFloor);
+        });
+    });
 };
