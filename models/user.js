@@ -21,8 +21,13 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     });
-  
-  
+    
+  User.associate = function (models) {
+    User.hasMany(models.Artisan, {
+
+    })
+  };
+
     return User;
   };
   

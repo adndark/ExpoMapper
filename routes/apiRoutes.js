@@ -45,6 +45,17 @@ module.exports = function(app) {
 //  ----------------Artisan Routes ------------------------ //
 
   // Get all artisans
+  app.get("/api/artisansByUserId/:id", function(req, res) {
+    db.Artisan.findAll({
+      where: {
+        UserId: req.params.id
+      }
+    }).then(function(dbArtisan) {
+      res.json(dbArtisan);
+    });
+  });
+
+
   app.get("/api/artisans", function(req, res) {
     db.Artisan.findAll({}).then(function(dbArtisan) {
       res.json(dbArtisan);
