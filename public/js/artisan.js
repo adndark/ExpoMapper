@@ -96,15 +96,20 @@ function renderEmpty() {
 }
 
 $("#getArtisanInfo").on("click", function(event) {
-  $('#artisanBody').empty()
+
+  console.log("Getting artisan info");
+  // Display artisans container
+  $("#artisanContainer").show();
+  // Clear artisans table
+  $('#artisansTable').empty();
+  // Hide other containers
   $("#sectionsHead").hide();
-  $("#sectionsBody").hide();
-  //upsertArtisan();
+  $("#artisanHead").hide();
 
     // Render artisan table
   console.log("Instantiate ArtisanTable and wait for model change");
   const artisansByUser = new ArtisanCollection([], { userId: 1 });
-  const artisanTable = new ArtisanTable({ el: "#tableTest", model: artisansByUser });
+  const artisanTable = new ArtisanTable({ el: "#artisansTable", model: artisansByUser });
   artisansByUser.fetch({
 
       success: function() {
@@ -113,18 +118,6 @@ $("#getArtisanInfo").on("click", function(event) {
   });
 
 });
-
-  function handleDeleteButtonPress() {
-/*  var listItemData = $(this).parent("td").parent("tr").data("artisan");
-  var id = listItemData.id;
-
-
-  $.ajax({
-    method: "DELETE",
-    url: "/api/artisans/" + id
-  }).then(getArtisans);
-  location.reload();*/
-}
 
 function handleUpdateButtonPress() {
 
