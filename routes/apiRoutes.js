@@ -3,6 +3,19 @@ var db = require("../models");
 
 // Define api routes
 module.exports = function(app) {
+    // Login
+    app.post("/api/login", function(req, res) {
+        console.log(req);
+        db.User.findOne({
+            where: {
+                userName: req.body.username,
+                password: req.body.password
+            }
+        }).then(function(dbUser) {
+            res.json(dbUser);
+        });
+    });
+
     // Get all users
     app.get("/api/users", function(req, res) {
         db.User.findAll({}).then(function(dbUser) {

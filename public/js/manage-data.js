@@ -91,7 +91,7 @@ $(document).ready(function() {
     $("#getArtisanInfo").on("click", function(event) {
 
         // Load data for user 1 as is the only one we have
-        loadArtisanData(1);
+        loadArtisanData(getCook("userId"));
 
     });
 
@@ -99,12 +99,12 @@ $(document).ready(function() {
     $("#getSectionInfo").on("click", function(event) {
 
         // Load data for user 1 as is the only one we have
-        loadSectionsData(1);
+        loadSectionsData(getCook("userId"));
     });
 
     // Bind logic to button for getting stand info
     $("#getStandInfo").on("click", function(event) {
 
-        loadStandsData(1);
+        loadStandsData(getCook("userId"));
     });
 });
