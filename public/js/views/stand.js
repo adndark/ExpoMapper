@@ -45,7 +45,6 @@ const StandTable = Backbone.View.extend({
     render: function() {
 
         console.log("Rendering table");
-        const title = $("<h1>Stands</h1>");
         const table = $("<table class=\"table table-striped\">");
         // Generate table header
         table.append(generateSectionTableHeader());
@@ -55,7 +54,6 @@ const StandTable = Backbone.View.extend({
             const standRowView = new StandRow({ $el: this.$el, model: section });
             tbody.append(standRowView.render().$el);
         });
-        title.appendTo("#standsTable")
         table.append(tbody);
         this.$el.append(table);
         return this;

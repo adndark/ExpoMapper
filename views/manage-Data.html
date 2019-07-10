@@ -49,8 +49,6 @@
         </div>
     </nav>
 
-    <body>
-
         <section>
             <div class="container">
                 <div class="row mt-4">
@@ -67,16 +65,18 @@
                 <div class="row">
                     <div class="col-md-8">
                         <!-- Artisans from backbone view -->
-                        <div id="artisanContainer" class="data-container">
+                        <div id="artisansContainer" class="data-container" style="display: none;">
                             <h1>Artisans</h1>
                             <div id="artisansTable"></div>
                         </div>
                         <!-- Sections from backbone view -->
-                        <div id="sectionsHead" class="data-container">
+                        <div id="sectionsContainer" class="data-container" style="display: none;">
+                            <h1>Sections</h1>
                             <div id="sectionsTable"></div>
                         </div>
                         <!-- Stands from backbone view -->
-                        <div id="standHead" class="data-container">
+                        <div id="standsContainer" class="data-container" style="display: none;">
+                            <h1>Stands</h1>
                             <div id="standsTable"></div>
                         </div>
                     </div>
@@ -111,17 +111,17 @@
         <!-- JavaScrip files for artisan models and views -->
         <script src="/js/models/artisan.js"></script>
         <script src="/js/views/artisan.js"></script>
-        <script src="/js/artisan.js"></script>
 
         <!-- JavaScrip files for section models and views -->
         <script src="/js/models/section.js"></script>
         <script src="/js/views/section.js"></script>
-        <script src="/js/section.js"></script>
 
         <!-- JavaScrip files for stand models and views -->
         <script src="/js/models/stand.js"></script>
         <script src="/js/views/stand.js"></script>
-        <script src="/js/stand.js"></script>
+
+        <!-- main js to control this page -->
+        <script src="/js/manage-data.js"></script>
 
     </body>
 
