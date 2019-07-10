@@ -6,6 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -33,96 +42,107 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
+                        <a class="nav-link js-scroll-trigger" href="newMap"><i class="fa fa-plus fa-plus-2x text-primary"></i> New Floor</a>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
+                        <a class="nav-link js-scroll-trigger" href="artisan"><i class="fa fa-plus fa-plus-2x text-primary"></i> New artisan</a>
+
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="section">New section</a>
+                        <a class="nav-link js-scroll-trigger" href="section"><i class="fa fa-plus fa-plus-2x text-primary"></i> New section</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="stand">New stand</a>
+                        <a class="nav-link js-scroll-trigger" href="stand"><i class="fa fa-plus fa-plus-2x text-primary"></i> New stand</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="manageData"><i class="fa fa-database fa-database-2x text-primary"></i> Manage Data</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
 
-        <section>
-            <div class="container">
-                <div class="row mt-4">
-                    <div class="col-md-2 col-sm-2">
-                        <button id="getArtisanInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Artisan</button>
-                    </div>
-                    <div class="col-md-2 col-sm-2">
-                        <button id="getSectionInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Section</button>
-                    </div>
-                    <div class="col-md-2 col-sm-2">
-                        <button id="getStandInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Stand</button>
-                    </div>
+    <section>
+        <div class="container">
+
+            <div class="row mt-12">
+                <div class="col-md-12 ">
+                    <h2>DATA MANAGE</h2>
                 </div>
-                <div class="row">
-                    <div class="col-md-8">
-                        <!-- Artisans from backbone view -->
-                        <div id="artisansContainer" class="data-container" style="display: none;">
-                            <h1>Artisans</h1>
-                            <div id="artisansTable"></div>
-                        </div>
-                        <!-- Sections from backbone view -->
-                        <div id="sectionsContainer" class="data-container" style="display: none;">
-                            <h1>Sections</h1>
-                            <div id="sectionsTable"></div>
-                        </div>
-                        <!-- Stands from backbone view -->
-                        <div id="standsContainer" class="data-container" style="display: none;">
-                            <h1>Stands</h1>
-                            <div id="standsTable"></div>
-                        </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-2 col-sm-2">
+                    <button id="getArtisanInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Artisan</button>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <button id="getSectionInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Section</button>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                    <button id="getStandInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Stand</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Artisans from backbone view -->
+                    <div id="artisansContainer" class="data-container" style="display: none;">
+                        <h1>Artisans</h1>
+                        <div id="artisansTable"></div>
+                    </div>
+                    <!-- Sections from backbone view -->
+                    <div id="sectionsContainer" class="data-container" style="display: none;">
+                        <h1>Sections</h1>
+                        <div id="sectionsTable"></div>
+                    </div>
+                    <!-- Stands from backbone view -->
+                    <div id="standsContainer" class="data-container" style="display: none;">
+                        <h1>Stands</h1>
+                        <div id="standsTable"></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4">
-                        <span class="copyright">Copyright &copy; Your Website 2019</span>
-                    </div>
-                    <div class="col-md-4">
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                </div>
+                <div class="col-md-4">
 
-                    </div>
-                    <div class="col-md-4">
-                        <ul class="list-inline quicklinks">
-                            <li class="list-inline-item">
-                                <a href="#">Privacy Policy</a>
-                            </li>
-                            <li class="list-inline-item">
-                                <a href="#">Terms of Use</a>
-                            </li>
-                        </ul>
-                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- JavaScrip files for artisan models and views -->
-        <script src="/js/models/artisan.js"></script>
-        <script src="/js/views/artisan.js"></script>
+    <!-- JavaScrip files for artisan models and views -->
+    <script src="/js/models/artisan.js"></script>
+    <script src="/js/views/artisan.js"></script>
 
-        <!-- JavaScrip files for section models and views -->
-        <script src="/js/models/section.js"></script>
-        <script src="/js/views/section.js"></script>
+    <!-- JavaScrip files for section models and views -->
+    <script src="/js/models/section.js"></script>
+    <script src="/js/views/section.js"></script>
 
-        <!-- JavaScrip files for stand models and views -->
-        <script src="/js/models/stand.js"></script>
-        <script src="/js/views/stand.js"></script>
+    <!-- JavaScrip files for stand models and views -->
+    <script src="/js/models/stand.js"></script>
+    <script src="/js/views/stand.js"></script>
 
-        <!-- main js to control this page -->
-        <script src="/js/manage-data.js"></script>
+    <!-- main js to control this page -->
+    <script src="/js/manage-data.js"></script>
 
-    </body>
+</body>
 
 </html>

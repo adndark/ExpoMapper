@@ -2,170 +2,175 @@
 <html lang="en">
 
 <head>
-  <title>ExpoMapper</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ExpoMapper</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- scripts -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <script src="js/lib/fabric-min.js"></script>
-  <script src="js/workspace/genericComponent.js"></script>
-  <script src="js/workspace/genericSpace.js"></script>
-  <script src="js/workspace/floor.js"></script>
-  <script src="js/workspace/section.js"></script>
-  <script src="js/workspace/stand.js"></script>
-  <script src="js/workspace/workspace.js"></script>
+    <!-- scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="js/lib/fabric-min.js"></script>
+    <script src="js/workspace/genericComponent.js"></script>
+    <script src="js/workspace/genericSpace.js"></script>
+    <script src="js/workspace/floor.js"></script>
+    <script src="js/workspace/section.js"></script>
+    <script src="js/workspace/stand.js"></script>
+    <script src="js/workspace/workspace.js"></script>
 
-  <!-- style -->
-  <!-- bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <!-- general style -->
-  <link href="/styles/style.css" rel="stylesheet">
-  <link href="/css/general.css" rel="stylesheet">
+    <!-- style -->
 
-  </style>
+    <!-- Custom fonts for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!-- general style -->
+    <link href="/styles/style.css" rel="stylesheet">
+    <link href="/css/general.css" rel="stylesheet">
+
+    </style>
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
-        data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
-        aria-label="Toggle navigation">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
       </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="newMap">Create new Floor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="artisan">Create new artisan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="section">New section</a>
-          </li>
-          <!-- <li class="nav-item">
-          <a class="nav-link js-scroll-trigger" href="#team">Team</a>
-        </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="stand">New stand</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="newMap"><i class="fa fa-plus fa-plus-2x text-primary"></i> New Floor</a>
 
-  <section id="dashboard">
-    <!-- main body container. Needs to be container-fluid to span across all screen width-->
-    <div id="mainBodyContainer" class="container" style="margin-top:30px">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="artisan"><i class="fa fa-plus fa-plus-2x text-primary"></i> New artisan</a>
 
-      <!-- header row -->
-      <div class="row" id="headerRow">
-        <div class="col-sm-8">
-          <h2>Map (NOMBRE)</h2>
-        </div>
-      </div>
-
-      <!-- header row  end -->
-
-      <!-- workspace row-->
-      <div class="row" id="workspaceRow">
-
-        <!-- tools column -->
-        <div class="col-sm-2 tools-column">
-
-          <!-- canvas actions row-->
-          <div class="row" id="canvasActions">
-
-            <!-- canvas action column -->
-            <div class="col-sm-12">
-
-              <!-- canvas actions header row -->
-              <div class="row" id="actionsHeader">
-                <div class="col-sm-12 tools-header-column">Actions</div>
-              </div>
-              <!-- canvas actions header row end -->
-
-              <!-- canvas actions first row-->
-              <div class="row" id="actionsFirstLevel">
-                <div class="col-sm-6 canvas-action-button">+ pabellon</div>
-                <div class="col-sm-6 canvas-action-button">- pabellon</div>
-              </div>
-              <!-- canvas actions first row end -->
-
-              <!-- canvas actions second row-->
-              <div class="row" id="actionsSecondLevel">
-                <div class="col-sm-6 canvas-action-button">+ stand</div>
-                <div class="col-sm-6 canvas-action-button">- stand</div>
-              </div>
-              <!-- canvas actions second row end -->
-
-              <!-- canvas objects listing row -->
-              <div class="row" id="canvasObjectListing">
-                <div class="col-sm-12 tools-header-column">Pabellones</div>
-              </div>
-              <!-- canvas objects listing row end -->
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="section"><i class="fa fa-plus fa-plus-2x text-primary"></i> New section</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="stand"><i class="fa fa-plus fa-plus-2x text-primary"></i> New stand</a>
+                    </li>
+                </ul>
             </div>
-            <!-- canvas action column end -->
-          </div>
-          <!-- canvas action row end -->
         </div>
-        <!-- tools column end -->
+    </nav>
 
-        <!--canvas column -->
-        <div class="col-sm-8 workspace-panel">
-          <!--workspace container for canvas -->
-          <div id="workspaceContainer" class="workspace-container">
-            <!--canvas container -->
-            <!--workspace canvas -->
-            <!-- <canvas id="workspaceCanvas"></canvas> -->
-          </div>
-        </div>
-        <!--canvas column end -->
+    <section id="dashboard">
+        <!-- main body container. Needs to be container-fluid to span across all screen width-->
+        <div id="mainBodyContainer" class="container" style="margin-top:30px">
 
-        <!--properties column -->
-        <div class="col-sm-2 properties-column">
-          <!-- tools container -->
-          <div id="propertiesContainer" class="properties-container">
-            Properties go here
-          </div>
-        </div>
-        <!--properties column end -->
+            <!-- header row -->
+            <div class="row" id="headerRow">
+                <div class="col-sm-8">
+                    <h2>Map (NOMBRE)</h2>
+                </div>
+            </div>
 
-      </div>
-      <!-- workspace row end -->
-    </div>
-  </section>
+            <!-- header row  end -->
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <span class="copyright">Copyright &copy; Your Website 2019</span>
-        </div>
-        <div class="col-md-4">
+            <!-- workspace row-->
+            <div class="row" id="workspaceRow">
 
+                <!-- tools column -->
+                <div class="col-sm-2 tools-column">
+
+                    <!-- canvas actions row-->
+                    <div class="row" id="canvasActions">
+
+                        <!-- canvas action column -->
+                        <div class="col-sm-12">
+
+                            <!-- canvas actions header row -->
+                            <div class="row" id="actionsHeader">
+                                <div class="col-sm-12 tools-header-column">Actions</div>
+                            </div>
+                            <!-- canvas actions header row end -->
+
+                            <!-- canvas actions first row-->
+                            <div class="row" id="actionsFirstLevel">
+                                <div class="col-sm-6 canvas-action-button">+ pabellon</div>
+                                <div class="col-sm-6 canvas-action-button">- pabellon</div>
+                            </div>
+                            <!-- canvas actions first row end -->
+
+                            <!-- canvas actions second row-->
+                            <div class="row" id="actionsSecondLevel">
+                                <div class="col-sm-6 canvas-action-button">+ stand</div>
+                                <div class="col-sm-6 canvas-action-button">- stand</div>
+                            </div>
+                            <!-- canvas actions second row end -->
+
+                            <!-- canvas objects listing row -->
+                            <div class="row" id="canvasObjectListing">
+                                <div class="col-sm-12 tools-header-column">Pabellones</div>
+                            </div>
+                            <!-- canvas objects listing row end -->
+                        </div>
+                        <!-- canvas action column end -->
+                    </div>
+                    <!-- canvas action row end -->
+                </div>
+                <!-- tools column end -->
+
+                <!--canvas column -->
+                <div class="col-sm-8 workspace-panel">
+                    <!--workspace container for canvas -->
+                    <div id="workspaceContainer" class="workspace-container">
+                        <!--canvas container -->
+                        <!--workspace canvas -->
+                        <!-- <canvas id="workspaceCanvas"></canvas> -->
+                    </div>
+                </div>
+                <!--canvas column end -->
+
+                <!--properties column -->
+                <div class="col-sm-2 properties-column">
+                    <!-- tools container -->
+                    <div id="propertiesContainer" class="properties-container">
+                        Properties go here
+                    </div>
+                </div>
+                <!--properties column end -->
+
+            </div>
+            <!-- workspace row end -->
         </div>
-        <div class="col-md-4">
-          <ul class="list-inline quicklinks">
-            <li class="list-inline-item">
-              <a href="#">Privacy Policy</a>
-            </li>
-            <li class="list-inline-item">
-              <a href="#">Terms of Use</a>
-            </li>
-          </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <span class="copyright">Copyright &copy; Your Website 2019</span>
+                </div>
+                <div class="col-md-4">
+
+                </div>
+                <div class="col-md-4">
+                    <ul class="list-inline quicklinks">
+                        <li class="list-inline-item">
+                            <a href="#">Privacy Policy</a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">Terms of Use</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
+
 </body>
 
 </html>
