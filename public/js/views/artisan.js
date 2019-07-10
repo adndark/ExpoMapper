@@ -23,15 +23,34 @@ function generateArtisanTableHeader() {
 const ArtisanRow = Backbone.View.extend({
 
     events: {
-        "click .delete-artisan": "deleteArtisan"
+        "click .delete-artisan": "deleteArtisan",
+        "click .update-artisan": "updateArtisan"
     },
 
     deleteArtisan: function() {
+        // Remove row frmo view
         this.remove();
-        //this.model.destroy()
         console.log("Deleting artisan with id " + this.model.get("id"));
-        //this.model.trigger('delete', this.model);
+        // Destroy model (destroy in db)
         this.model.destroy();
+    },
+
+    updateArtisan: function() {
+        console.log("Update model " + JSON.stringify(this.model));
+        this.model.save();
+    },
+
+    attributeValueChange: function(key) {
+        const self = this;
+        return function() {
+            var value = self.model.get(key);
+            if (value != $(this).html()) {
+                console.log("Model value changed. Original: " + value + " new: " + $(this).html());
+                console.log(key);
+                console.log($(this).html());
+                self.model.set(key, $(this).html());
+            }
+        }
     },
 
     tagName: "tr",
@@ -40,7 +59,8 @@ const ArtisanRow = Backbone.View.extend({
 
         const self = this;
         _.each(artisanColumn, function(val, key) {
-            const column = "<td contenteditable='true' id='" + key + "'>" + self.model.get(key) + "</tr>";
+            const column = $("<td contenteditable='true' id='" + key + "'>" + self.model.get(key) + "</tr>");
+            column.blur(self.attributeValueChange(key));
             self.$el.append(column);
         });
         // Create buttons
@@ -57,7 +77,10 @@ const ArtisanTable = Backbone.View.extend({
 
     // If the model changes then render the view again
     initialize: function() {
-        this.listenTo(this.model, "change", this.render);
+        this.listenTo(this.model, "change", function() {
+            this.$el.empty();
+            this.render();
+        });
     },
 
     render: function() {
