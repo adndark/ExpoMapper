@@ -11,7 +11,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
-    <script src="../lib/backbone-min.js"></script>
+
 
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -43,18 +43,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/"><i class="fa fa-plus fa-plus-2x text-primary"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="newMap"><i class="fa fa-plus fa-plus-2x text-primary"></i> New Floor</a>
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="artisan"><i class="fa fa-plus fa-plus-2x text-primary"></i> New artisan</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="section"><i class="fa fa-plus fa-plus-2x text-primary"></i> New section</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="stand"><i class="fa fa-plus fa-plus-2x text-primary"></i> New stand</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="manageData"><i class="fa fa-database fa-database-2x text-primary"></i> Manage Data</a>
@@ -67,23 +62,14 @@
 
     <section id="dashboard">
         <div class="container" style="margin-top:30px">
-
-
             <div class="row">
-                <div class="col-lg-8 text-center">
+                <div class="col-lg-12 text-center">
                     <h3 class="section-heading text-uppercase">New Artisan form</h3>
                     <h3 class="section-subheading text-muted"> </h3>
                 </div>
-                <!-- <div class="col-lg-4 text-center">
-                    <h3 class="section-heading text-uppercase">Artisans</h3>
-                    <h3 class="section-subheading text-muted"> </h3>
-                </div> -->
             </div>
             <div class="row">
-                <div class="col-lg-8">
-
-
-
+                <div class="col-lg-12">
                     <form id="artisan-form" name="sentMessage" novalidate="novalidate">
                         <div class="row">
                             <div class="col-md-6">
@@ -148,48 +134,12 @@
                                 <div id="success"></div>
                                 <button id="save-artisan" class="btn btn-primary btn-xl text-uppercase" type="button">Save</button>
                             </div>
-
                         </div>
-
                     </form>
-
-                </div>
-
-                <div class="col-lg-4 text-center">
-                    <h4 class="section-heading text-uppercase">Artisans </h4>
-                    <button id="find-artisans" class="btn btn-primary btn-x2 text-uppercase" type="button">List</button>
                 </div>
             </div>
-
-
-
-
-
         </div>
-
     </section>
-
-
-    <div id="standsHead" class="data-container">
-        <h1>Stand</h1>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Stand Name</th>
-                    <th>Artisan</th>
-                </tr>
-            </thead>
-            <tbody id="table-body">
-            </tbody>
-        </table>
-    </div>
-
-
-
-
-
-
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -213,7 +163,6 @@
             </div>
         </div>
     </footer>
-
     <script src="js/models/artisan.js"></script>
     <script src="js/artisan.js"></script>
 </body>

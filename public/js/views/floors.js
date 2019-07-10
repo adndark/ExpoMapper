@@ -1,32 +1,31 @@
-const sectionColumn = {
-    sectionName: "Name",
-    capacity: "Capacity",
-
+const floorColumn = {
+    floorName: "Floor Name",
 };
 
-function generateSectionTableHeader() {
+function generateFloorTableHeader() {
     let head = $("<thead>");
-    _.each(sectionColumn, function(val, key) {
+    _.each(floorColumn, function(val, key) {
         head.append("<th>" + val + "</th>");
     });
     return head;
 }
 
-const SectionRow = Backbone.View.extend({
+const floorRow = Backbone.View.extend({
+
     events: {
-        "click .delete-section": "deleteSection",
-        "click .update-section": "updateSection"
+        "click .delete-floor": "deleteFloor",
+        "click .update-floor": "updateFloor"
     },
 
-    deleteSection: function() {
+    deleteFloor: function() {
+        // Remove row frmo view
         this.remove();
-        //this.model.destroy()
-        console.log("Deleting section with id " + this.model.get("id"));
-        //this.model.trigger('delete', this.model);
+        console.log("Deleting Floor with id " + this.model.get("id"));
+        // Destroy model (destroy in db)
         this.model.destroy();
     },
 
-    updateSection: function() {
+    updateFloor: function() {
         console.log("Update model " + JSON.stringify(this.model));
         this.model.save();
     },
@@ -49,22 +48,22 @@ const SectionRow = Backbone.View.extend({
     render: function() {
 
         const self = this;
-        _.each(sectionColumn, function(val, key) {
+        _.each(floorColumn, function(val, key) {
             const column = $("<td contenteditable='true' id='" + key + "'>" + self.model.get(key) + "</tr>");
             column.blur(self.attributeValueChange(key));
             self.$el.append(column);
         });
         // Create buttons
-        // Delete Section
-        this.$el.append("<td><a style='cursor:pointer;color:red' class='delete-section'>Delete</a></td>");
-        // Update Section
-        this.$el.append("<td><a style='cursor:pointer;color:red' class='update-section'>Update</a></td>");
+        // Delete floor
+        this.$el.append("<td><a style='cursor:pointer;color:red' class='delete-floor'>Delete </a></td>");
+        // Update floor
+        this.$el.append("<td><a style='cursor:pointer;color:red' class='update-floor'>Update </a></td>");
         return this;
     }
 
 });
 
-const SectionTable = Backbone.View.extend({
+const FloorTable = Backbone.View.extend({
 
     // If the model changes then render the view again
     initialize: function() {
@@ -76,16 +75,17 @@ const SectionTable = Backbone.View.extend({
 
     render: function() {
 
-        console.log("Rendering table");
         const table = $("<table class=\"table table-striped\">");
         // Generate table header
-        table.append(generateSectionTableHeader());
-        let tbody = $("<tbody id=\"sectionBody\"> </tbody>");
-        this.model.each(function(section) {
-            const sectionRowView = new SectionRow({ model: section });
-            // Generate artisan row jquery object by calling render
-            sectionRowView.render();
-            tbody.append(sectionRowView.$el);
+        table.append(generateFloorTableHeader());
+        let tbody = $("<tbody id=\"floorBody\"> </tbody>");
+        this.model.each(function(floor) {
+            //console.log("floor " + JSON.stringify(floor));
+            const floorRowView = new floorRow({ model: floor });
+            // Generate floor row jquery object by calling render
+            floorRowView.render();
+            // Append jquery element into tbody
+            tbody.append(floorRowView.$el);
         });
         table.append(tbody);
         this.$el.append(table);

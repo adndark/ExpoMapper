@@ -65,9 +65,9 @@ const ArtisanRow = Backbone.View.extend({
         });
         // Create buttons
         // Delete Artisan
-        this.$el.append("<td><a style='cursor:pointer;color:red' class='delete-artisan'>Delete Artisan</a></td>");
+        this.$el.append("<td><a style='cursor:pointer;color:red' class='delete-artisan'>Delete </a></td>");
         // Update artisan
-        this.$el.append("<td><a style='cursor:pointer;color:red' class='update-artisan'>Update Artisan</a></td>");
+        this.$el.append("<td><a style='cursor:pointer;color:red' class='update-artisan'>Update </a></td>");
         return this;
     }
 
@@ -85,7 +85,6 @@ const ArtisanTable = Backbone.View.extend({
 
     render: function() {
 
-        console.log("Rendering table");
         const table = $("<table class=\"table table-striped\">");
         // Generate table header
         table.append(generateArtisanTableHeader());

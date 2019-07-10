@@ -6,9 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <!-- Custom fonts for this template -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -16,9 +14,19 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+<<<<<<< HEAD
     <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
     <script src="js/login.js"></script>
+=======
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+
+>>>>>>> Update and delete Stand and Section - Delete forms and pages (new stand and new section) - Home page and projects in proress (home page/index page)
     <style>
         .fakeimg {
             height: 200px;
@@ -40,18 +48,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
                     <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/"><i class="fa fa-plus fa-plus-2x text-primary"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="newMap"><i class="fa fa-plus fa-plus-2x text-primary"></i> New Floor</a>
-
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="artisan"><i class="fa fa-plus fa-plus-2x text-primary"></i> New artisan</a>
-
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="section"><i class="fa fa-plus fa-plus-2x text-primary"></i> New section</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="stand"><i class="fa fa-plus fa-plus-2x text-primary"></i> New stand</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link js-scroll-trigger" href="manageData"><i class="fa fa-database fa-database-2x text-primary"></i> Manage Data</a>
@@ -61,32 +64,23 @@
         </div>
     </nav>
 
-
-    <section id="dashboard">
-        <div class="container" style="margin-top:30px">
-            <div class="row">
-                <div class="col-sm-8">
-                    <h2>Floors</h2>
-                    <h5>Maps in process</h5>
-                    <div class="fakeimg">Image</div>
-                    <p></p>
-                    <h3>TODO:</h3>
-                    <p></p>
-                    <ul class="nav nav-pills flex-column">
-                        <li class="nav-item">
-                            <button id="newMap" class="btn btn-primary" type="submit">Create a new floor</button>
-                        </li>
-                        <li class="nav-item">
-                            <a id="dataManag" class="nav-link" href="#">Data management and report</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link disabled" href="#"></a>
-                        </li>
-                    </ul>
-                    <hr class="d-sm-none">
+    <section>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-8 col-sm-2">
+                    <button id="getFloorsInfo" type="submit" class="btn btn-primary btn-x2 text-uppercase">Projects in progress</button>
                 </div>
-
             </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- Floors from backbone view -->
+                    <div id="floorsContainer" class="data-container" style="display: none;">
+                        <h1>Floors in progress</h1>
+                        <div id="floorsTable"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -115,7 +109,11 @@
         </div>
     </footer>
 
+    <!-- JavaScrip files for artisan models and views -->
+    <script src="/js/models/artisan.js"></script>
+    <script src="/js/views/artisan.js"></script>
 
+<<<<<<< HEAD
     <!-- Modal -->
     <div id="results-modal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -225,6 +223,10 @@
     <script src="js/app.js"></script>
     <script src="js/models/login.js"></script>
     <script src="js/login.js"></script>
+=======
+    <!-- main js to control this page -->
+    <script src="/js/manage-data.js"></script>
+>>>>>>> Update and delete Stand and Section - Delete forms and pages (new stand and new section) - Home page and projects in proress (home page/index page)
 </body>
 
 </html>
