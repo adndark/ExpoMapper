@@ -14,10 +14,6 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
-    <script src="js/lib/backbone-min.js"></script>
-    <script src="js/login.js"></script>
-
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
@@ -106,12 +102,33 @@
         </div>
     </footer>
 
+<!-- Modal -->
+<div id="userLoginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Log in</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                User id: <input type="textbox" id="username" value="test"><br>
+                Password: <input type="textbox" id="password" value="pass"><br>
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="login" class="btn btn-default">Log in</button>
+            </div>
+        </div>
+    </div>
+</div>
+
     <!-- JavaScrip files for artisan models and views -->
     <script src="/js/models/artisan.js"></script>
     <script src="/js/views/artisan.js"></script>
 
     <!-- main js to control this page -->
     <script src="/js/manage-data.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>

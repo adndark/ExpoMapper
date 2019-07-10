@@ -36,7 +36,7 @@ function loggedIn(cookiename) {
         console.log("Logged");
         return true;
     }
-    console.log("Not ogged");
+    console.log("Not logged");
     return false;
 }
 
