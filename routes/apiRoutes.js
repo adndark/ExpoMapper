@@ -273,7 +273,7 @@ module.exports = function(app) {
     });
 
     // Update Floor by id
-    app.put("/api/floor/:id", function(req, res) {
+    app.put("/api/floors/:id", function(req, res) {
         db.Floor.update(req.body, {
             where: {
                 id: req.params.id

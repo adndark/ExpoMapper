@@ -10,7 +10,7 @@ const FloorCollection = Backbone.Collection.extend({
 
     // Override initialize
     initialize: function(models, options) {
-        this.UserId = options.UserId;
+        this.UserId = options.userId;
     },
 
     // Define model

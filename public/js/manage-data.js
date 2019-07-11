@@ -1,28 +1,3 @@
-function loadFloorData(userId) {
-    console.log("Getting floor info");
-    // Hide other containers
-    hideDataContainers();
-    // Clear artisans table
-    $('#floorsTable').empty();
-
-    // Render artisan table
-    console.log("Instantiate Floor Table and wait for model change");
-    const floorsByUser = new FloorCollection([], { userId: userId });
-    const floorTable = new FloorTable({ el: "#artisansTable", model: floorsByUser });
-
-    // Retrieve data from server
-    floorsByUser.fetch({
-
-        success: function() {
-            // Render artisan table
-            floorTable.render();
-
-            // Display artisans container
-            $("#floorsContainer").show();
-        }
-    });
-}
-
 function loadArtisanData(userId) {
     console.log("Getting artisan info");
     // Hide other containers
@@ -111,13 +86,6 @@ $(document).ready(function() {
 
     // Hide all data containers
     hideDataContainers();
-    // Bind logic to button for getting artisans info
-    $("#getFloorsInfo").on("click", function(event) {
-
-        // Load data for user 1 as is the only one we have
-        loadFloorData(1);
-
-    });
 
     // Bind logic to button for getting artisans info
     $("#getArtisanInfo").on("click", function(event) {
