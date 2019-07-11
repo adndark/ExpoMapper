@@ -102,137 +102,138 @@
         </div>
     </footer>
 
-<!-- Modal -->
-<div id="userLoginModal" class="modal fade" role="dialog" tabindex="-1" role="dialog" aria-labelledby="userLoginModal" aria-hidden="true">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div id="loginModalHeader" class="modal-header" style="display: none;">
-                <h4 class="modal-title">Log in</h4>
-            </div>
-            <div id="signModalHeader" class="modal-header" style="display: none;">
-                <h4 class="modal-title">Sign up</h4>
-            </div>
+    <!-- Modal -->
+    <div id="userLoginModal" class="modal fade" role="dialog" tabindex="-1" role="dialog" aria-labelledby="userLoginModal" aria-hidden="true">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div id="loginModalHeader" class="modal-header" style="display: none;">
+                    <h4 class="modal-title">Log in</h4>
+                </div>
+                <div id="signModalHeader" class="modal-header" style="display: none;">
+                    <h4 class="modal-title">Sign up</h4>
+                </div>
 
-            <div class="modal-body">
-                <div role="tabpanel">
-                    <!-- Nav tabs -->
-                    <ul class="nav nav-tabs" role="tablist">
-                        <li role="presentation" class="active">
-                            <a id="loginTabLink" href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">
+                <div class="modal-body">
+                    <div role="tabpanel">
+                        <!-- Nav tabs -->
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li role="presentation" class="active">
+                                <a id="loginTabLink" href="#loginTab" aria-controls="loginTab" role="tab" data-toggle="tab">
                                 Log In
                             </a>
-                        </li>
-                        <li role="presentation">
-                            <a id="signupTabLink" href="#signupTab" aria-controls="signUpTab" role="tab" data-toggle="tab">
+                            </li>
+                            <li role="presentation">
+                                <a id="signupTabLink" href="#signupTab" aria-controls="signUpTab" role="tab" data-toggle="tab">
                                 &nbsp;&nbsp;&nbsp;Sign In
                             </a>
-                        </li>
-                    </ul>
+                            </li>
+                        </ul>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content">
-                        <!-- User login tab-->
-                        <div role="tabpanel" class="tab-pane active" id="loginTab">
-                            <!-- Inputs-->
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input id="username" type="text" class="form-control" id="staticEmail">
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <!-- User login tab-->
+                            <div role="tabpanel" class="tab-pane active" id="loginTab">
+                                <!-- Inputs-->
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <input id="username" type="text" class="form-control" id="staticEmail">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input id="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
+                                    </div>
+                                </div>
+                                <!--Inputs end -->
+
+                                <!-- Alert -->
+                                <div id="userNotFoundAlert" class="alert alert-danger" role="alert" style="display: none;">
+                                    User not found
+                                </div>
+
+                            </div>
+                            </form>
+
+                            <!-- Sign in tab-->
+                            <div role="tabpanel" class="tab-pane" id="signupTab">
+                                <!-- Inputs-->
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
+                                    <div class="col-sm-10">
+                                        <input id="newName" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                                    <div class="col-sm-10">
+                                        <input id="newEmail" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
+                                    <div class="col-sm-10">
+                                        <input id="newUsername" type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="staticEmail" class="col-sm-2 col-form-label">Password</label>
+                                    <div class="col-sm-10">
+                                        <input id="newPassword" type="password" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPassword" class="col-sm-2 col-form-label">Confirm password</label>
+                                    <div class="col-sm-10">
+                                        <input id="newConfirmPassword" type="password" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- Alert -->
+                                <div id="errorSignup" class="alert alert-danger" role="alert" style="display: none;">
+                                    Error signing up user
+                                </div>
+                                <!-- Alert -->
+                                <div id="passwordNotMatch" class="alert alert-danger" role="alert" style="display: none;">
+                                    Passwords do not match
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input id="password" type="password" class="form-control" id="inputPassword" placeholder="Password">
-                                </div>
-                            </div>
-                            <!--Inputs end -->
-
-                            <!-- Alert -->
-                            <div id="userNotFoundAlert" class="alert alert-danger" role="alert" style="display: none;">
-                                User not found
-                            </div>
+                            <!-- Sign in tab end-->
 
                         </div>
-                        </form>
-
-                        <!-- Sign in tab-->
-                        <div role="tabpanel" class="tab-pane" id="signupTab">
-                            <!-- Inputs-->
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Name</label>
-                                <div class="col-sm-10">
-                                    <input id="newName" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
-                                <div class="col-sm-10">
-                                    <input id="newEmail" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Username</label>
-                                <div class="col-sm-10">
-                                    <input id="newUsername" type="text" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="staticEmail" class="col-sm-2 col-form-label">Password</label>
-                                <div class="col-sm-10">
-                                    <input id="newPassword" type="password" class="form-control">
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label for="inputPassword" class="col-sm-2 col-form-label">Confirm password</label>
-                                <div class="col-sm-10">
-                                    <input id="newConfirmPassword" type="password" class="form-control">
-                                </div>
-                            </div>
-
-                            <!-- Alert -->
-                            <div id="errorSignup" class="alert alert-danger" role="alert" style="display: none;">
-                                Error signing up user
-                            </div>
-                            <!-- Alert -->
-                            <div id="passwordNotMatch" class="alert alert-danger" role="alert" style="display: none;">
-                                Passwords do not match
-                            </div>
-                        </div>
-                        <!-- Sign in tab end-->
-
                     </div>
                 </div>
-            </div>
-            <div id="modalFooterLogin" class="modal-footer" style="display: none;">
-                <!-- Spinner -->
-                <div id="loginSpinner" class="spinner-border text-info" role="status" style="display: none;">
-                    <span class="sr-only">Loading...</span>
+                <div id="modalFooterLogin" class="modal-footer" style="display: none;">
+                    <!-- Spinner -->
+                    <div id="loginSpinner" class="spinner-border text-info" role="status" style="display: none;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <button type="button" id="loginButton" class="btn btn-default">Log in</button>
                 </div>
-                <button type="button" id="loginButton" class="btn btn-default">Log in</button>
-            </div>
-            <div id="modalFooterSignup" class="modal-footer" style="display: none;">
-                <!-- Spinner -->
-                <div id="signupSpinner" class="spinner-border text-info" role="status" style="display: none;">
-                    <span class="sr-only">Loading...</span>
+                <div id="modalFooterSignup" class="modal-footer" style="display: none;">
+                    <!-- Spinner -->
+                    <div id="signupSpinner" class="spinner-border text-info" role="status" style="display: none;">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                    <button type="button" id="signupButton" class="btn btn-default">Sign up</button>
                 </div>
-                <button type="button" id="signupButton" class="btn btn-default">Sign up</button>
             </div>
         </div>
-    </div>
 
 
-    <!-- JavaScrip files for user models and views -->
-    <script src="/js/models/user.js"></script>
+        <!-- JavaScrip files for user models and views -->
+        <script src="/js/models/user.js"></script>
 
-    <!-- JavaScrip files for artisan models and views -->
-    <script src="/js/models/floor.js"></script>
-    <script src="/js/views/floor.js"></script>
+        <!-- JavaScrip files for artisan models and views -->
+        <!-- JavaScrip files for floor models and views -->
+        <script src="/js/models/floor.js"></script>
+        <script src="/js/views/floor.js"></script>
 
-    <!-- main js to control this page -->
-    <script src="/js/floor-data.js"></script>
-    <script src="js/login.js"></script>
+        <!-- main js to control this page -->
+        <script src="/js/floor-data.js"></script>
+        <script src="js/login.js"></script>
 </body>
 
 </html>

@@ -23,19 +23,22 @@
     min-width: 700px;
 }
 
-.tools-column {
+
+/* .tools-column {
     padding: 0px;
     border-style: solid;
     border-width: thin;
     border-color: blue;
     min-height: 600px;
-}
+} */
 
+
+/* 
 .tools-header-column {
     border-style: solid;
     border-width: thin;
     border-color: green;
-}
+} */
 
 .properties-column {
     padding: 0px;

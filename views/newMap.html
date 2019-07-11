@@ -32,6 +32,12 @@
     <link href="/styles/style.css" rel="stylesheet">
     <link href="/css/general.css" rel="stylesheet">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+
     </style>
 </head>
 
@@ -42,7 +48,7 @@
             <a class="navbar-brand js-scroll-trigger" href="#page-top">ExpoMapper</a>
             <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
-        <i class="fas fa-bars"></i>
+        <i class="fa fa-bars"></i>
       </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav text-uppercase ml-auto">
@@ -66,21 +72,18 @@
     <section id="dashboard">
         <!-- main body container. Needs to be container-fluid to span across all screen width-->
         <div id="mainBodyContainer" class="container" style="margin-top:30px">
-
             <!-- header row -->
             <div class="row" id="headerRow">
                 <div class="col-sm-8">
                     <h2>Map (NOMBRE)</h2>
                 </div>
             </div>
-
             <!-- header row  end -->
-
             <!-- workspace row-->
             <div class="row" id="workspaceRow">
 
                 <!-- tools column -->
-                <div class="col-sm-2 tools-column">
+                <div class="col-sm-4 tools-column">
 
                     <!-- canvas actions row-->
                     <div class="row" id="canvasActions">
@@ -90,33 +93,46 @@
 
                             <!-- canvas actions header row -->
                             <div class="row" id="actionsHeader">
-                                <div class="col-sm-12 tools-header-column">Actions</div>
+                                <div class="col-sm-12 tools-header-column">Actions: </div>
                             </div>
                             <!-- canvas actions header row end -->
 
                             <!-- canvas actions first row-->
                             <div class="row" id="actionsFirstLevel">
-                                <div class="col-sm-6 canvas-action-button">+ pabellon</div>
-                                <div class="col-sm-6 canvas-action-button">- pabellon</div>
+                                <button id="newSection" type="submit" class="col-sm-5 canvas-action-button btn"><i class="fa fa-plus fa-plus"></i> Section</button>
+                                <button id="deleteSection" type="submit" class=" col-sm-5 canvas-action-button btn"><i class="fa fa-minus fa-plus"></i> Section</button>
                             </div>
                             <!-- canvas actions first row end -->
 
                             <!-- canvas actions second row-->
                             <div class="row" id="actionsSecondLevel">
-                                <div class="col-sm-6 canvas-action-button">+ stand</div>
-                                <div class="col-sm-6 canvas-action-button">- stand</div>
+                                <button id="newStand" type="submit" class="col-sm-5 canvas-action-button btn"><i class="fa fa-plus fa-plus"></i> Stand</button>
+                                <button id="deleteStand" type="submit" class="col-sm-5 canvas-action-button btn"><i class="fa fa-minus fa-plus"></i> Stand</button>
                             </div>
                             <!-- canvas actions second row end -->
 
                             <!-- canvas objects listing row -->
                             <div class="row" id="canvasObjectListing">
-                                <div class="col-sm-12 tools-header-column">Pabellones</div>
+                                <div class="col-sm-12 tools-header-column">Properties:</div>
                             </div>
                             <!-- canvas objects listing row end -->
                         </div>
                         <!-- canvas action column end -->
                     </div>
                     <!-- canvas action row end -->
+                    <div class="col-md-8">
+                        <!-- Sections from backbone view -->
+                        <div id="sectionProperties" class="data-container" style="display: active;">
+                            <h4>Section</h4>
+                            <div id="sectionTable"></div>
+                        </div>
+                        <!-- Stands from backbone view -->
+                        <div id="standProperties" class="data-container" style="display:active;">
+                            <h4>Stand</h4>
+                            <div id="standTable"></div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- tools column end -->
 
@@ -130,16 +146,6 @@
                     </div>
                 </div>
                 <!--canvas column end -->
-
-                <!--properties column -->
-                <div class="col-sm-2 properties-column">
-                    <!-- tools container -->
-                    <div id="propertiesContainer" class="properties-container">
-                        Properties go here
-                    </div>
-                </div>
-                <!--properties column end -->
-
             </div>
             <!-- workspace row end -->
         </div>
@@ -168,6 +174,55 @@
             </div>
         </div>
     </footer>
+    <!-- Modal 1 -->
+    <div class="actions-modal-modal modal fade" id="section-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="close-modal" data-dismiss="modal">
+                    <div class="lr">
+                        <div class="rl"></div>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-8 mx-auto">
+                            <div class="modal-body">
+                                <!--Details Go Here -->
+                                <h2 class="text-uppercase">New Section</h2>
+                                <form id="section-form" name="section-form" novalidate="novalidate">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label for="stand-name">Section Name</label>
+                                                <input type="text" class="form-control" id="sectionName" placeholder="Section Name" value="" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="capacity">Capacity:</label>
+                                                <input type="text" class="form-control" id="capacity" placeholder="Capacity" value="" required>
+                                                <!-- <select class="custom-select" id="artisan"></select> -->
+                                            </div>
+                                            <div class="clearfix"></div>
+                                            <div class="col-lg-12 text-center">
+                                                <div id="success"></div>
+                                                <button id="save-section" class="btn btn-primary text-uppercase" type="button">Save</button>
+                                                <button class="btn btn-primary" data-dismiss="modal" type="button">                   
+                                                <i class="fa fa-times"></i> Close Project</button>
+                                            </div>
+                                        </div>
+                                </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Js create newStand and newSection -->
+        <script src="/js/models/section.js"></script>
+        <script src="/js/newFloorData.js"></script>
+        <script src="/js/newFloor.js"></script>
+
 
 </body>
 
