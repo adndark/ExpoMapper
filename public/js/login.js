@@ -65,14 +65,14 @@ $("#signupButton").on("click", function() {
     const password = $("#newPassword").val();
     const confirmPassword = $("#newConfirmPassword").val();
 
-    if(confirmPassword != password) {
+    if (confirmPassword != password) {
         console.log("Passwords do not match");
         $("#passwordNotMatch").show();
         return;
     }
 
     // Show spinner
-    $("#signSpinner").show();
+    $("#signupSpinner").show();
 
     const user = new UserModel({ name: name, email: email, userName: username, password: password });
     user.save({}, {
@@ -88,11 +88,20 @@ $("#signupButton").on("click", function() {
             console.log(document.cookie);
         },
 
-        error: function() {
-            console.log("Faile to save user");
+        error: function(model, response) {
+            console.log("Failed to save user");
             $("#signupSpinner").hide();
+
+            console.log(response);
+            if (response.responseJSON.path == "email") {
+                $("#errorSignup").html("Email format is invalid");
+            }
+
+            if(response.responseJSON.path == "userName") {
+                $("#errorSignup").html("Username is not unique");
+            }
             $("#errorSignup").show();
-        }
+        },
     });
 
 });

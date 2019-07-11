@@ -27,6 +27,9 @@ module.exports = function(app) {
     app.post("/api/users", function(req, res) {
         db.User.create(req.body).then(function(dbUser) {
             res.json(dbUser);
+        }).catch(function (err) {
+            console.log(err);
+            res.status(500).send({ type: err.errors[0].type, path: err.errors[0].path });
         });
     });
 
