@@ -10,7 +10,7 @@ const StandsCollection = Backbone.Collection.extend({
 
     //Override initialize 
     initialize: function(models, options) {
-        this.SectionId = options.SectionId;
+        this.floorId = options.floorId;
     },
 
     //define Model
@@ -18,7 +18,7 @@ const StandsCollection = Backbone.Collection.extend({
 
     //Override Url function
     url: function() {
-        return "/api/standsBySectionId/" + this.SectionId;
+        return "/api/standsByFloorId/" + this.floorId;
     }
 
 })

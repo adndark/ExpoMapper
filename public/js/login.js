@@ -74,7 +74,7 @@ $("#signupButton").on("click", function() {
     // Show spinner
     $("#signupSpinner").show();
 
-    const user = new UserModel({ name: name, email: email, userName: username, password: password });
+    const user = new UserModel({ name: name, email: email, username: username, password: password });
     user.save({}, {
         success: function(model, response) {
 

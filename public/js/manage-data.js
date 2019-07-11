@@ -26,14 +26,14 @@ function loadArtisanData(userId) {
     });
 }
 
-function loadSectionsData(userId) {
+function loadSectionsData(floorId) {
     console.log("Getting sections data");
     // Hide other containers
     hideDataContainers();
     // Clear sections table
     $("#sectionsTable").empty();
     // Retrieve data and render
-    const sectionsByFloor = new SectionsCollection([], { FloorId: userId });
+    const sectionsByFloor = new SectionsCollection([], { floorId: floorId });
     const sectionTable = new SectionTable({ el: "#sectionsTable", model: sectionsByFloor });
 
     // Show loading data spinner
@@ -52,13 +52,13 @@ function loadSectionsData(userId) {
     });
 }
 
-function loadStandsData(userId) {
+function loadStandsData(floorId) {
     console.log("Instantiate Stand Table and wait for model change");
     // Hide other containers
     hideDataContainers();
     // Clear sections table
     $("#standsTable").empty();
-    const standsBySection = new StandsCollection([], { SectionId: 1 });
+    const standsBySection = new StandsCollection([], { floorId: floorId });
     const standTable = new StandTable({ el: "#standsTable", model: standsBySection });
 
     // Show loading data spinner

@@ -4,20 +4,19 @@ module.exports = function(sequelize, DataTypes) {
         standName: {
             type: DataTypes.STRING,
         },
-        artisan: {
+        locationId: {
             type: DataTypes.STRING,
         },
     });
+
     // Stands belongs to Artisan Model - Stands can not have more than one artisan.
     Stand.associate = function(models) {
         Stand.belongsTo(models.Artisan, {
             foreignKey: {
-                allowNull: false
+                allowNull: true
             }
         });
-    };
 
-    Stand.associate = function(models) {
         Stand.belongsTo(models.Section, {
             foreignKey: {
                 allowNull: false

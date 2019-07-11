@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     // Creating new User table 
     var User = sequelize.define("User", {
-        userName: {
+        username: {
             type: DataTypes.STRING,
             defaultValue: null,
             unique: true

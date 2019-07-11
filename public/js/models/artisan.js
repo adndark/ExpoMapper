@@ -10,7 +10,7 @@ const ArtisanCollection = Backbone.Collection.extend({
 
     // Override initialize
     initialize: function(models, options) {
-        this.UserId = options.userId;
+        this.userId = options.userId;
     },
 
     // Define model
@@ -18,6 +18,6 @@ const ArtisanCollection = Backbone.Collection.extend({
 
     // Override url function
     url: function() {
-        return "/api/artisansByUserId/" + this.UserId;
+        return "/api/artisansByUserId/" + this.userId;
     }
 });

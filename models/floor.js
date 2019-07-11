@@ -15,9 +15,8 @@ module.exports = function(sequelize, DataTypes) {
                 allowNull: false
             }
         });
-    };
-    // Floor has many sections. 
-    Floor.associate = function(models) {
+
+        // Floor has many sections.
         Floor.hasMany(models.Section, {
 
         });

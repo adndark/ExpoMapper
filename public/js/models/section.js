@@ -10,7 +10,7 @@ const SectionsCollection = Backbone.Collection.extend({
 
     // Override initialize
     initialize: function(models, options) {
-        this.FloorId = options.FloorId;
+        this.floorId = options.floorId;
     },
 
     // Define model
@@ -18,6 +18,6 @@ const SectionsCollection = Backbone.Collection.extend({
 
     // Override url function
     url: function() {
-        return "/api/sectionsByFloorId/" + this.FloorId;
+        return "/api/sectionsByFloorId/" + this.floorId;
     }
 });

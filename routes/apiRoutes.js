@@ -124,7 +124,10 @@ module.exports = function(app) {
         db.Section.findAll({
             where: {
                 FloorId: req.params.id
-            }
+            },
+            include: [{
+                model: db.Stand
+            }]
         }).then(function(dbSection) {
             res.json(dbSection);
         });
@@ -175,11 +178,18 @@ module.exports = function(app) {
 
     //  ----------------Stand Routes ------------------------ //
     // Get all stands that belong to a section id
-    app.get("/api/standsBySectionId/:id", function(req, res) {
+    app.get("/api/standsByFloorId/:id", function(req, res) {
         db.Stand.findAll({
             where: {
                 SectionId: req.params.id
-            }
+            },
+            include: [{
+                model: db.Section,
+                include:[db.Floor]
+            },
+            {
+                model: db.Artisan
+            }]
         }).then(function(dbStand) {
             res.json(dbStand);
         });
