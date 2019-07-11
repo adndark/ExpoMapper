@@ -1,7 +1,7 @@
 // Define user model
 const UserModel = Backbone.Model.extend({
     // Url to fetch data from
-    urlRoot: "/api/user",
+    urlRoot: "/api/users",
 });
 
 // Define User collection
