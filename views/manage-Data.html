@@ -80,18 +80,27 @@
             </div>
             <div class="row">
                 <div class="col-md-8">
+
+                    <!-- Loading data container -->
+                    <div id="loadingData" class="data-container extraTopPadding" style="display: none;">
+                        <h5>Loading data</h5>
+                        <div id="loadingDataSpinner" class="spinner-border text-info" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+                    </div>
+
                     <!-- Artisans from backbone view -->
-                    <div id="artisansContainer" class="data-container" style="display: none;">
+                    <div id="artisansContainer" class="data-container extraTopPadding" style="display: none;">
                         <h1>Artisans</h1>
                         <div id="artisansTable"></div>
                     </div>
                     <!-- Sections from backbone view -->
-                    <div id="sectionsContainer" class="data-container" style="display: none;">
+                    <div id="sectionsContainer" class="data-container extraTopPadding" style="display: none;">
                         <h1>Sections</h1>
                         <div id="sectionsTable"></div>
                     </div>
                     <!-- Stands from backbone view -->
-                    <div id="standsContainer" class="data-container" style="display: none;">
+                    <div id="standsContainer" class="data-container extraTopPadding" style="display: none;">
                         <h1>Stands</h1>
                         <div id="standsTable"></div>
                     </div>

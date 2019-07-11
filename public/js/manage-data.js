@@ -10,13 +10,16 @@ function loadArtisanData(userId) {
     const artisansByUser = new ArtisanCollection([], { userId: userId });
     const artisanTable = new ArtisanTable({ el: "#artisansTable", model: artisansByUser });
 
+    // Show loading data spinner
+    $("#loadingData").show();
     // Retrieve data from server
     artisansByUser.fetch({
 
         success: function() {
             // Render artisan table
             artisanTable.render();
-
+            // Hide loading data container
+            $("#loadingData").hide();
             // Display artisans container
             $("#artisansContainer").show();
         }
@@ -33,14 +36,16 @@ function loadSectionsData(userId) {
     const sectionsByFloor = new SectionsCollection([], { FloorId: userId });
     const sectionTable = new SectionTable({ el: "#sectionsTable", model: sectionsByFloor });
 
-
+    // Show loading data spinner
+    $("#loadingData").show();
     // Retrieve data from server
     sectionsByFloor.fetch({
 
         success: function() {
             // Render section table
             sectionTable.render();
-
+            // Hide loading data container
+            $("#loadingData").hide();
             // Display section container
             $("#sectionsContainer").show();
         }
@@ -56,13 +61,16 @@ function loadStandsData(userId) {
     const standsBySection = new StandsCollection([], { SectionId: 1 });
     const standTable = new StandTable({ el: "#standsTable", model: standsBySection });
 
+    // Show loading data spinner
+    $("#loadingData").show();
     // Retrieve data from server
     standsBySection.fetch({
 
         success: function() {
             // Render section table
             standTable.render();
-
+            // Hide loading data container
+            $("#loadingData").hide();
             // Display section container
             $("#standsContainer").show();
         }
@@ -71,12 +79,15 @@ function loadStandsData(userId) {
 }
 
 function hideDataContainers() {
+
     // Hide artisan container
     $("#artisansContainer").hide();
     // Hide section container
     $("#sectionsContainer").hide();
     // Hide stands container
     $("#standsContainer").hide();
+    // Show loading data container
+    $("#loadingData").hide();
 }
 
 // Once the document is ready (loaded all files) then

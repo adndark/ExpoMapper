@@ -727,4 +727,8 @@ ul.social-buttons li a:hover {
 
 #contactInfo {
     color: white;
-}
+  }
+
+  .extraTopPadding {
+    padding-top: 50px;
+  }
